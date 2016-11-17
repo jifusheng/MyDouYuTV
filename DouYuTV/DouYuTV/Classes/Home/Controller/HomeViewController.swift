@@ -11,18 +11,19 @@ import UIKit
 class HomeViewController: UIViewController {
     fileprivate let titles = ["推荐","游戏","娱乐","趣玩"]
     // MARK: - 懒加载属性
-    private lazy var pageTitleView : PageTitleView = {
+    private lazy var pageTitleView : PageTitleView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH, width: kScreenW, height: kPageTitleViewH)
-        let titleView = PageTitleView(frame: titleFrame, titles: self.titles)
+        let titleView = PageTitleView(frame: titleFrame, titles: (self?.titles)!)
+        titleView.delegate = self
         return titleView
     }()
-    private lazy var pageContentView : PageContentView = {
+    fileprivate lazy var pageContentView : PageContentView = { [weak self] in
         //1、设置frame
         let contentH = kScreenH - kTabBarH - kStatusBarH - kNavigationH - kPageTitleViewH
         let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH + kPageTitleViewH, width: kScreenW, height: contentH)
         //创建自控制器
         var childVcs = [UIViewController]()
-        for _ in 0..<self.titles.count {
+        for _ in 0..<(self?.titles)!.count {
             let childVc = UIViewController()
             childVc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(UInt32(255.0))), g: CGFloat(arc4random_uniform(UInt32(255.0))), b: CGFloat(arc4random_uniform(UInt32(255.0))))
             childVcs.append(childVc)
@@ -43,8 +44,6 @@ class HomeViewController: UIViewController {
         //3、添加pageContentView
         view.addSubview(pageContentView)
     }
-
-
 }
 
 // MARK: - 设置UI界面
@@ -67,5 +66,13 @@ extension HomeViewController {
         let qrcodeItem = UIBarButtonItem(imageName: "scanIcon", highlightedImage: "scanIconHL", size: size, edgeInsets: .init(top: 0, left: 10, bottom: 0, right: -10))
         let searchItem = UIBarButtonItem(imageName: "searchBtnIcon", highlightedImage: "searchBtnIconHL", size: size, edgeInsets: .init(top: 0, left: 10, bottom: 0, right: -10))
         navigationItem.rightBarButtonItems = [searchItem, qrcodeItem, historyItem]
+    }
+}
+
+// MARK: - 遵守PageTitleViewDelegate协议，实现代理方法
+extension HomeViewController : PageTitleViewDelegate {
+    func pageTitleView(titleView: PageTitleView, selectedIndex index: Int) {
+        print(index)
+        pageContentView.setCurrentIndex(index)
     }
 }

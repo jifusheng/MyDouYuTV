@@ -13,18 +13,18 @@ private let Identifier = "pageContentIdentifier"
 class PageContentView: UIView {
     // MARK: - 定义属性
     fileprivate var childVcs : [UIViewController]
-    fileprivate var parentVc : UIViewController
+    fileprivate weak var parentVc : UIViewController?
     
     // MARK: - 懒加载
-    fileprivate lazy var collectionView : UICollectionView = {
+    fileprivate lazy var collectionView : UICollectionView = {[weak self] in
         //创建流水布局
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         //创建collectionView
-        let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = false
@@ -34,7 +34,7 @@ class PageContentView: UIView {
     }()
     
     // MARK: - 自定义一个构造函数
-    init(frame: CGRect ,childVcs : [UIViewController] ,parentVc : UIViewController) {
+    init(frame: CGRect ,childVcs : [UIViewController] ,parentVc : UIViewController?) {
         self.childVcs = childVcs
         self.parentVc = parentVc
         super.init(frame: frame)
@@ -54,10 +54,11 @@ extension PageContentView {
     fileprivate func setupUI() {
         //1、把所有的子控制器添加到父控制器中
         for childVc in childVcs {
-            parentVc.addChildViewController(childVc)
+            parentVc?.addChildViewController(childVc)
         }
         //2、添加collectionView
         addSubview(collectionView)
+        collectionView.frame = self.bounds
     }
 }
 
@@ -82,5 +83,11 @@ extension PageContentView : UICollectionViewDataSource {
     }
 }
 
-
+// MARK: - 对外可用的方法
+extension PageContentView {
+    func setCurrentIndex(_ currectIndex : Int) {
+        let point : CGPoint = CGPoint(x: collectionView.frame.size.width * CGFloat(currectIndex), y: 0)
+        collectionView.setContentOffset(point, animated: true)
+    }
+}
 

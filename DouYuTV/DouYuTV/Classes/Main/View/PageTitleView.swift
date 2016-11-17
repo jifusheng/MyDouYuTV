@@ -8,9 +8,16 @@
 
 import UIKit
 
+// MARK: - 设置代理
+protocol PageTitleViewDelegate : class {
+    func pageTitleView(titleView : PageTitleView ,selectedIndex index : Int)
+}
+
 class PageTitleView: UIView {
     // MARK: - 定义属性
     fileprivate var titles : [String]
+    fileprivate var currentIndex : Int = 0
+    weak var delegate : PageTitleViewDelegate?
     
     // MARK: - 懒加载一个数组存放所以的Label
     fileprivate lazy var titleLabels : [UILabel] = [UILabel]()
@@ -55,6 +62,7 @@ extension PageTitleView {
         //3、设置底线和滚动滑块
         setupBottomLineAndScrollLine()
     }
+    
     // MARK: - 创建标题的Label
     private func setupTitleLabels() {
         //0、初始化一些值
@@ -68,7 +76,7 @@ extension PageTitleView {
             label.text = title
             label.tag = index
             label.font = .systemFont(ofSize: 16)
-            label.textColor = .darkGray
+            label.textColor = index == 0 ? .orange : .darkGray
             label.textAlignment = .center
             //3、设置label的frame
             let labelX : CGFloat = labelW * CGFloat(index)
@@ -77,8 +85,13 @@ extension PageTitleView {
             scrollView.addSubview(label)
             //5、把Label添加到数组中
             titleLabels.append(label)
+            //6、给Label添加手势
+            label.isUserInteractionEnabled = true
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.labelTapGesture(_:)))
+            label.addGestureRecognizer(gesture)
         }
     }
+    
     // MARK: - 创建底部分割线和小滑快
     private func setupBottomLineAndScrollLine() {
         //1、创建分割线
@@ -92,6 +105,27 @@ extension PageTitleView {
         guard let firstLabel = titleLabels.first else { return }
         scrollView.addSubview(scrollLine)
         scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: firstLabel.frame.maxY, width: firstLabel.frame.width, height: kScrollLineH)
+    }
+}
+
+// MARK: - 事件处理
+extension PageTitleView {
+    @objc fileprivate func labelTapGesture(_ tap : UITapGestureRecognizer) {
+        //1、获取点击之前的Label
+        let lastLabel = titleLabels[currentIndex]
+        //2、获取当前点击的Label
+        guard let currentLabel = tap.view as? UILabel else { return }
+        //3、修改Label的文字颜色
+        lastLabel.textColor = .darkGray
+        currentLabel.textColor = .orange
+        //4、把当前的下标保存
+        currentIndex = currentLabel.tag
+        //5、设置滑块的位置,执行动画
+        UIView.animate(withDuration: 0.15) {
+            self.scrollLine.center.x = currentLabel.center.x
+        }
+        //6、通知代理做事情
+        delegate?.pageTitleView(titleView: self, selectedIndex: currentLabel.tag)
     }
 }
 
