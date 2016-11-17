@@ -9,12 +9,26 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    fileprivate let titles = ["推荐","游戏","娱乐","趣玩"]
     // MARK: - 懒加载属性
     private lazy var pageTitleView : PageTitleView = {
-        let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH, width: kScreenW, height: 40)
-        let titles = ["推荐","游戏","娱乐","趣玩"]
-        let titleView = PageTitleView(frame: titleFrame, titles: titles)
+        let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH, width: kScreenW, height: kPageTitleViewH)
+        let titleView = PageTitleView(frame: titleFrame, titles: self.titles)
         return titleView
+    }()
+    private lazy var pageContentView : PageContentView = {
+        //1、设置frame
+        let contentH = kScreenH - kTabBarH - kStatusBarH - kNavigationH - kPageTitleViewH
+        let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH + kPageTitleViewH, width: kScreenW, height: contentH)
+        //创建自控制器
+        var childVcs = [UIViewController]()
+        for _ in 0..<self.titles.count {
+            let childVc = UIViewController()
+            childVc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(UInt32(255.0))), g: CGFloat(arc4random_uniform(UInt32(255.0))), b: CGFloat(arc4random_uniform(UInt32(255.0))))
+            childVcs.append(childVc)
+        }
+        let pageContentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
+        return pageContentView
     }()
     
     // MARK: - 系统的回调函数
@@ -26,6 +40,8 @@ class HomeViewController: UIViewController {
         setupUI()
         //2、添加titleView
         view.addSubview(pageTitleView)
+        //3、添加pageContentView
+        view.addSubview(pageContentView)
     }
 
 

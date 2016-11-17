@@ -11,6 +11,8 @@
 		7FEB21961DDD3B6A00B898DF /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB21951DDD3B6A00B898DF /* Common.swift */; };
 		7FEB21A11DDD456F00B898DF /* Follow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEB219D1DDD456F00B898DF /* Follow.storyboard */; };
 		7FEB21A21DDD456F00B898DF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FEB219F1DDD456F00B898DF /* Profile.storyboard */; };
+		7FEB21A41DDD5A8D00B898DF /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB21A31DDD5A8D00B898DF /* PageContentView.swift */; };
+		7FEB21A81DDD5F3800B898DF /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB21A71DDD5F3800B898DF /* UIColor-Extension.swift */; };
 		E17619C71DB8DCD9003965E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17619C61DB8DCD9003965E2 /* AppDelegate.swift */; };
 		E17619CC1DB8DCD9003965E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17619CA1DB8DCD9003965E2 /* Main.storyboard */; };
 		E17619CE1DB8DCD9003965E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E17619CD1DB8DCD9003965E2 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 		7FEB21951DDD3B6A00B898DF /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		7FEB219E1DDD456F00B898DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Follow.storyboard; sourceTree = "<group>"; };
 		7FEB21A01DDD456F00B898DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		7FEB21A31DDD5A8D00B898DF /* PageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
+		7FEB21A71DDD5F3800B898DF /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		E17619C31DB8DCD9003965E2 /* DouYuTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYuTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E17619C61DB8DCD9003965E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E17619CB1DB8DCD9003965E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEB21921DDD386500B898DF /* PageTitleView.swift */,
+				7FEB21A31DDD5A8D00B898DF /* PageContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				E1761A0A1DB908E4003965E2 /* UIBarButtonItem-Extension.swift */,
+				7FEB21A71DDD5F3800B898DF /* UIColor-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -388,12 +394,14 @@
 				7FEB21931DDD386500B898DF /* PageTitleView.swift in Sources */,
 				E1761A081DB900A5003965E2 /* ProfileViewController.swift in Sources */,
 				E17619C71DB8DCD9003965E2 /* AppDelegate.swift in Sources */,
+				7FEB21A41DDD5A8D00B898DF /* PageContentView.swift in Sources */,
 				E1761A001DB90028003965E2 /* MainViewController.swift in Sources */,
 				7FEB21961DDD3B6A00B898DF /* Common.swift in Sources */,
 				E1761A061DB90098003965E2 /* FollowViewController.swift in Sources */,
 				E1761A041DB9008C003965E2 /* LiveViewController.swift in Sources */,
 				E1761A021DB90071003965E2 /* HomeViewController.swift in Sources */,
 				E1761A0B1DB908E4003965E2 /* UIBarButtonItem-Extension.swift in Sources */,
+				7FEB21A81DDD5F3800B898DF /* UIColor-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
