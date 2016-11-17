@@ -129,4 +129,11 @@ extension PageTitleView {
     }
 }
 
+// MARK: - 外部可以调用的方法
+extension PageTitleView {
+    func setTitleWithProgress(progress: CGFloat ,currectIndex: Int, targetIndex: Int) {
+        
+    }
+}
+
 

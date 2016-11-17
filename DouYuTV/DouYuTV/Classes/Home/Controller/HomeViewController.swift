@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     fileprivate let titles = ["推荐","游戏","娱乐","趣玩"]
     // MARK: - 懒加载属性
-    private lazy var pageTitleView : PageTitleView = { [weak self] in
+    fileprivate lazy var pageTitleView : PageTitleView = { [weak self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH, width: kScreenW, height: kPageTitleViewH)
         let titleView = PageTitleView(frame: titleFrame, titles: (self?.titles)!)
         titleView.delegate = self
@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
             childVcs.append(childVc)
         }
         let pageContentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
+        pageContentView.delegate = self
         return pageContentView
     }()
     
@@ -74,5 +75,12 @@ extension HomeViewController : PageTitleViewDelegate {
     func pageTitleView(titleView: PageTitleView, selectedIndex index: Int) {
         print(index)
         pageContentView.setCurrentIndex(index)
+    }
+}
+
+// MARK: - 遵守PageContentViewDelegate协议，实现代理方法
+extension HomeViewController : PageContentViewDelegate {
+    func pageContentView(contentView: PageContentView, progress: CGFloat, currentIndex: Int, targetIndex: Int) {
+        pageTitleView.setTitleWithProgress(progress: progress, currectIndex: currentIndex, targetIndex: targetIndex)
     }
 }

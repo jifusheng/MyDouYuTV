@@ -8,12 +8,20 @@
 
 import UIKit
 
+// MARK: - 定义协议
+protocol PageContentViewDelegate : class {
+    func pageContentView(contentView: PageContentView, progress: CGFloat,currentIndex: Int, targetIndex: Int)
+}
+
 private let Identifier = "pageContentIdentifier"
 
 class PageContentView: UIView {
     // MARK: - 定义属性
     fileprivate var childVcs : [UIViewController]
     fileprivate weak var parentVc : UIViewController?
+    fileprivate var startOffsetX : CGFloat = 0
+    fileprivate var currentIndex : Int = 0
+    weak var delegate : PageContentViewDelegate?
     
     // MARK: - 懒加载
     fileprivate lazy var collectionView : UICollectionView = {[weak self] in
@@ -26,6 +34,7 @@ class PageContentView: UIView {
         //创建collectionView
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.bounces = false
         collectionView.isPagingEnabled = true
@@ -80,6 +89,39 @@ extension PageContentView : UICollectionViewDataSource {
         childVc.view.frame = cell.bounds
         cell.contentView.addSubview(childVc.view)
         return cell
+    }
+}
+
+// MARK: - collectionView的代理方法
+extension PageContentView : UICollectionViewDelegate {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+        currentIndex = Int(startOffsetX / scrollView.frame.width)
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var progress : CGFloat = 0
+        var targetIndex : Int = 0
+        let currentOffsetX = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        if currentOffsetX > startOffsetX { //左滑动
+            //计算进度
+            progress = (currentOffsetX - width * CGFloat(currentIndex)) / width
+            //计算目标下标
+            targetIndex = currentIndex + 1
+            if targetIndex >= childVcs.count {
+                targetIndex = childVcs.count - 1
+            }
+        } else {   //右滑动
+            //计算进度
+            progress = (width * CGFloat(currentIndex) - currentOffsetX) / width
+            //计算目标下标
+            targetIndex = currentIndex - 1
+            if targetIndex <= 0 {
+                targetIndex = 0
+            }
+        }
+        //把计算所得传递给pageTitleVIew
+        delegate?.pageContentView(contentView: self, progress: progress,currentIndex: currentIndex, targetIndex: targetIndex)
     }
 }
 
