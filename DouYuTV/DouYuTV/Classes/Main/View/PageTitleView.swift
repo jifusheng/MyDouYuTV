@@ -13,6 +13,10 @@ protocol PageTitleViewDelegate : class {
     func pageTitleView(titleView : PageTitleView ,selectedIndex index : Int)
 }
 
+// MARK: - 定义一些颜色常量
+private var kNormalColor : (CGFloat, CGFloat, CGFloat) = (85, 85, 85)
+private var kSelectedColor : (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
+
 class PageTitleView: UIView {
     // MARK: - 定义属性
     fileprivate var titles : [String]
@@ -34,7 +38,7 @@ class PageTitleView: UIView {
     // MARK: - scrollLine懒加载
     fileprivate lazy var scrollLine : UIView = {
         let scrollLine = UIView()
-        scrollLine.backgroundColor = UIColor.orange
+        scrollLine.backgroundColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
         return scrollLine
     }()
     
@@ -76,7 +80,7 @@ extension PageTitleView {
             label.text = title
             label.tag = index
             label.font = .systemFont(ofSize: 16)
-            label.textColor = index == 0 ? .orange : .darkGray
+            label.textColor = index == 0 ? UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2) : UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
             label.textAlignment = .center
             //3、设置label的frame
             let labelX : CGFloat = labelW * CGFloat(index)
@@ -104,7 +108,7 @@ extension PageTitleView {
         //2.1、取出第一个Label
         guard let firstLabel = titleLabels.first else { return }
         scrollView.addSubview(scrollLine)
-        scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: firstLabel.frame.maxY, width: firstLabel.frame.width, height: kScrollLineH)
+        scrollLine.frame = CGRect(x: firstLabel.frame.origin.x, y: frame.height - kScrollLineH, width: firstLabel.frame.width, height: kScrollLineH)
     }
 }
 
@@ -117,7 +121,7 @@ extension PageTitleView {
         guard let currentLabel = tap.view as? UILabel else { return }
         //3、修改Label的文字颜色
         lastLabel.textColor = .darkGray
-        currentLabel.textColor = .orange
+        currentLabel.textColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
         //4、把当前的下标保存
         currentIndex = currentLabel.tag
         //5、设置滑块的位置,执行动画
@@ -132,7 +136,22 @@ extension PageTitleView {
 // MARK: - 外部可以调用的方法
 extension PageTitleView {
     func setTitleWithProgress(progress: CGFloat ,currectIndex: Int, targetIndex: Int) {
-        
+        //1、取出当前的或目标Label
+        let currentLbl = titleLabels[currectIndex]
+        let targetLbl = titleLabels[targetIndex]
+        //2、处理滑块的逻辑
+        let moveTotalX = targetLbl.frame.origin.x - currentLbl.frame.origin.x
+        let movingX = moveTotalX * progress
+        scrollLine.frame.origin.x = currentLbl.frame.origin.x + movingX
+        //3、设置渐变颜色
+        //3.1、颜色渐变范围
+        let colorChanged = (kSelectedColor.0 - kNormalColor.0, kSelectedColor.1 - kNormalColor.1, kSelectedColor.2 - kNormalColor.2)
+        //3.2、设置变化的当前的Label
+        currentLbl.textColor = UIColor(r: kSelectedColor.0 - colorChanged.0 * progress, g: kSelectedColor.1 - colorChanged.1 * progress, b: kSelectedColor.2 - colorChanged.2 * progress)
+        //3.3、设置变化的目标的Label
+        targetLbl.textColor = UIColor(r: kNormalColor.0 + colorChanged.0 * progress, g: kNormalColor.1 + colorChanged.1 * progress, b: kNormalColor.2 + colorChanged.2 * progress)
+        //4、记录当前的下标
+        self.currentIndex = targetIndex
     }
 }
 
