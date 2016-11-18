@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="NormalCollectionCell" customModule="DouYuTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_live_cate_normal" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-iC-PzD">
+                        <rect key="frame" x="0.0" y="126" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Utg-iC-PzD" secondAttribute="height" multiplier="1:1" id="KDZ-xO-n7g"/>
+                            <constraint firstAttribute="width" constant="14" id="MWv-To-6Ds"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是你的哦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4I-Zq-gx6">
+                        <rect key="frame" x="19" y="126" width="181" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_default" translatesAutoresizingMaskIntoConstraints="NO" id="TzR-ym-j0s">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="120"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJL-1g-dtx">
+                        <rect key="frame" x="141" y="5" width="54" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.30097656239999998" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <inset key="contentEdgeInsets" minX="3" minY="0.0" maxX="3" maxY="0.0"/>
+                        <state key="normal" title=" 2344" image="Image_online"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSJ-wG-3q9">
+                        <rect key="frame" x="0.0" y="100" width="200" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                        <state key="normal" title=" 小贱人在直播" image="home_live_player_phone"/>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="c4I-Zq-gx6" firstAttribute="leading" secondItem="Utg-iC-PzD" secondAttribute="trailing" constant="5" id="8Gf-Bw-VKF"/>
+                <constraint firstItem="PSJ-wG-3q9" firstAttribute="bottom" secondItem="TzR-ym-j0s" secondAttribute="bottom" constant="-5" id="Bjm-Jq-UEc"/>
+                <constraint firstItem="c4I-Zq-gx6" firstAttribute="centerY" secondItem="Utg-iC-PzD" secondAttribute="centerY" id="Gz3-D0-jZe"/>
+                <constraint firstItem="Utg-iC-PzD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="H7B-cP-Ava"/>
+                <constraint firstAttribute="trailing" secondItem="TzR-ym-j0s" secondAttribute="trailing" id="Ph7-JL-ccG"/>
+                <constraint firstItem="kJL-1g-dtx" firstAttribute="top" secondItem="TzR-ym-j0s" secondAttribute="top" constant="5" id="Q5Q-qF-QQx"/>
+                <constraint firstAttribute="trailing" secondItem="PSJ-wG-3q9" secondAttribute="trailing" id="Yiq-Vb-Lx7"/>
+                <constraint firstAttribute="trailing" secondItem="c4I-Zq-gx6" secondAttribute="trailing" id="a1o-cp-ugf"/>
+                <constraint firstItem="PSJ-wG-3q9" firstAttribute="leading" secondItem="TzR-ym-j0s" secondAttribute="leading" id="bcD-GH-RdZ"/>
+                <constraint firstAttribute="bottom" secondItem="Utg-iC-PzD" secondAttribute="bottom" constant="10" id="iRG-Fb-3ni"/>
+                <constraint firstItem="kJL-1g-dtx" firstAttribute="trailing" secondItem="TzR-ym-j0s" secondAttribute="trailing" constant="-5" id="mFe-f1-XTM"/>
+                <constraint firstItem="TzR-ym-j0s" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="q81-eL-BIF"/>
+                <constraint firstItem="c4I-Zq-gx6" firstAttribute="top" secondItem="TzR-ym-j0s" secondAttribute="bottom" constant="6" id="qDT-R2-Tzp"/>
+                <constraint firstItem="TzR-ym-j0s" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="t1z-Eq-CQ0"/>
+            </constraints>
+            <size key="customSize" width="200" height="150"/>
+            <point key="canvasLocation" x="-55" y="-41"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Image_online" width="16" height="16"/>
+        <image name="Img_default" width="172" height="103"/>
+        <image name="home_live_cate_normal" width="14" height="14"/>
+        <image name="home_live_player_phone" width="14" height="14"/>
+    </resources>
+</document>
