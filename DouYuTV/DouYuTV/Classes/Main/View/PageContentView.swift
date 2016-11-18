@@ -114,7 +114,7 @@ extension PageContentView : UICollectionViewDelegate {
             if targetIndex >= childVcs.count {
                 targetIndex = childVcs.count - 1
             }
-        } else {   //右滑动
+        } else if currentOffsetX < startOffsetX {   //右滑动
             //计算进度
             progress = (width * CGFloat(currentIndex) - currentOffsetX) / width
             //计算目标下标
@@ -122,6 +122,11 @@ extension PageContentView : UICollectionViewDelegate {
             if targetIndex <= 0 {
                 targetIndex = 0
             }
+        } else {
+            //计算进度
+            progress = 0
+            //计算目标下标
+            targetIndex = currentIndex
         }
         //把计算所得传递给pageTitleVIew
         delegate?.pageContentView(contentView: self, progress: progress,currentIndex: currentIndex, targetIndex: targetIndex)

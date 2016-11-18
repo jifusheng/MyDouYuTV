@@ -82,6 +82,6 @@ extension HomeViewController : PageTitleViewDelegate {
 // MARK: - 遵守PageContentViewDelegate协议，实现代理方法
 extension HomeViewController : PageContentViewDelegate {
     func pageContentView(contentView: PageContentView, progress: CGFloat, currentIndex: Int, targetIndex: Int) {
-        pageTitleView.setTitleWithProgress(progress: progress, currectIndex: currentIndex, targetIndex: targetIndex)
+        pageTitleView.setTitleWithProgress(progress: progress, currentIndex: currentIndex, targetIndex: targetIndex)
     }
 }

@@ -135,9 +135,9 @@ extension PageTitleView {
 
 // MARK: - 外部可以调用的方法
 extension PageTitleView {
-    func setTitleWithProgress(progress: CGFloat ,currectIndex: Int, targetIndex: Int) {
+    func setTitleWithProgress(progress: CGFloat ,currentIndex: Int, targetIndex: Int) {
         //1、取出当前的或目标Label
-        let currentLbl = titleLabels[currectIndex]
+        let currentLbl = titleLabels[currentIndex]
         let targetLbl = titleLabels[targetIndex]
         //2、处理滑块的逻辑
         let moveTotalX = targetLbl.frame.origin.x - currentLbl.frame.origin.x
@@ -150,6 +150,9 @@ extension PageTitleView {
         currentLbl.textColor = UIColor(r: kSelectedColor.0 - colorChanged.0 * progress, g: kSelectedColor.1 - colorChanged.1 * progress, b: kSelectedColor.2 - colorChanged.2 * progress)
         //3.3、设置变化的目标的Label
         targetLbl.textColor = UIColor(r: kNormalColor.0 + colorChanged.0 * progress, g: kNormalColor.1 + colorChanged.1 * progress, b: kNormalColor.2 + colorChanged.2 * progress)
+        if currentIndex == targetIndex {
+            targetLbl.textColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
+        }
         //4、记录当前的下标
         self.currentIndex = targetIndex
     }
