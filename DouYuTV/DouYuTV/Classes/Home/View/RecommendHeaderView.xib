@@ -20,14 +20,14 @@
                     <rect key="frame" x="0.0" y="10" width="375" height="40"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_header_phone" translatesAutoresizingMaskIntoConstraints="NO" id="pIm-dL-Z8o">
-                            <rect key="frame" x="8" y="11" width="18" height="18"/>
+                            <rect key="frame" x="10" y="11" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="18" id="Q4S-an-7Xw"/>
                                 <constraint firstAttribute="width" secondItem="pIm-dL-Z8o" secondAttribute="height" multiplier="1:1" id="wk7-1F-rF8"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xg-KS-fAX">
-                            <rect key="frame" x="36" y="10" width="33" height="20"/>
+                            <rect key="frame" x="38" y="10" width="33" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                         <constraint firstItem="4Xg-KS-fAX" firstAttribute="centerY" secondItem="pIm-dL-Z8o" secondAttribute="centerY" id="Vl8-6o-DCs"/>
                         <constraint firstAttribute="trailing" secondItem="q2G-au-P6m" secondAttribute="trailing" constant="10" id="eFF-J2-Thu"/>
                         <constraint firstItem="pIm-dL-Z8o" firstAttribute="centerY" secondItem="cwV-Fc-uO8" secondAttribute="centerY" id="o7X-om-468"/>
-                        <constraint firstItem="pIm-dL-Z8o" firstAttribute="leading" secondItem="cwV-Fc-uO8" secondAttribute="leading" constant="8" id="tSv-UQ-q8k"/>
+                        <constraint firstItem="pIm-dL-Z8o" firstAttribute="leading" secondItem="cwV-Fc-uO8" secondAttribute="leading" constant="10" id="tSv-UQ-q8k"/>
                     </constraints>
                 </view>
             </subviews>

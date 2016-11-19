@@ -27,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是你的哦" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4I-Zq-gx6">
-                        <rect key="frame" x="19" y="126" width="181" height="14"/>
+                        <rect key="frame" x="16" y="126" width="184" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="c4I-Zq-gx6" firstAttribute="leading" secondItem="Utg-iC-PzD" secondAttribute="trailing" constant="5" id="8Gf-Bw-VKF"/>
+                <constraint firstItem="c4I-Zq-gx6" firstAttribute="leading" secondItem="Utg-iC-PzD" secondAttribute="trailing" constant="2" id="8Gf-Bw-VKF"/>
                 <constraint firstItem="PSJ-wG-3q9" firstAttribute="bottom" secondItem="TzR-ym-j0s" secondAttribute="bottom" constant="-5" id="Bjm-Jq-UEc"/>
                 <constraint firstItem="c4I-Zq-gx6" firstAttribute="centerY" secondItem="Utg-iC-PzD" secondAttribute="centerY" id="Gz3-D0-jZe"/>
                 <constraint firstItem="Utg-iC-PzD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="H7B-cP-Ava"/>
@@ -80,6 +80,12 @@
                 <constraint firstItem="TzR-ym-j0s" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="t1z-Eq-CQ0"/>
             </constraints>
             <size key="customSize" width="200" height="150"/>
+            <connections>
+                <outlet property="iconView" destination="TzR-ym-j0s" id="DfJ-Hx-fEM"/>
+                <outlet property="nikeNameBtn" destination="PSJ-wG-3q9" id="mIE-K2-OQD"/>
+                <outlet property="onlineCountBtn" destination="kJL-1g-dtx" id="cUq-6q-CRs"/>
+                <outlet property="roomNameLbl" destination="c4I-Zq-gx6" id="wZt-PI-PHn"/>
+            </connections>
             <point key="canvasLocation" x="-55" y="-41"/>
         </collectionViewCell>
     </objects>

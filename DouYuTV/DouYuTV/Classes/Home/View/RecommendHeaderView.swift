@@ -10,9 +10,21 @@ import UIKit
 
 class RecommendHeaderView: UICollectionReusableView {
     
-    @IBOutlet weak  var logoView: UIImageView!
-    @IBOutlet weak var headerTitle: UILabel!
+    // MARK: - 控件属性
+    @IBOutlet weak fileprivate var logoView: UIImageView!
+    @IBOutlet weak fileprivate var headerTitle: UILabel!
+    
+    // MARK: - 按钮的点击
     @IBAction func moreBtn() {
-        
+
     }
+    
+    // MARK: - 定义模型属性
+    var anchorGroup : AnchorGroupModel? {
+        didSet {
+            logoView.image = UIImage(named: anchorGroup?.icon_name ?? "home_header_phone")
+            headerTitle.text = anchorGroup?.tag_name
+        }
+    }
+    
 }

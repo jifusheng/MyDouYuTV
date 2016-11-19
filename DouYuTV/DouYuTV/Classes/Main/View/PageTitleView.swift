@@ -139,22 +139,21 @@ extension PageTitleView {
         //1、取出当前的或目标Label
         let currentLbl = titleLabels[currentIndex]
         let targetLbl = titleLabels[targetIndex]
-        //2、处理滑块的逻辑
+        //2、记录当前的下标
+        self.currentIndex = targetIndex
+        //3、如果当前的index和目标index相同就返回
+        if currentIndex == targetIndex { return }
+        //4、处理滑块的逻辑
         let moveTotalX = targetLbl.frame.origin.x - currentLbl.frame.origin.x
         let movingX = moveTotalX * progress
         scrollLine.frame.origin.x = currentLbl.frame.origin.x + movingX
-        //3、设置渐变颜色
-        //3.1、颜色渐变范围
+        //5、设置渐变颜色
+        //5.1、颜色渐变范围
         let colorChanged = (kSelectedColor.0 - kNormalColor.0, kSelectedColor.1 - kNormalColor.1, kSelectedColor.2 - kNormalColor.2)
-        //3.2、设置变化的当前的Label
+        //5.2、设置变化的当前的Label
         currentLbl.textColor = UIColor(r: kSelectedColor.0 - colorChanged.0 * progress, g: kSelectedColor.1 - colorChanged.1 * progress, b: kSelectedColor.2 - colorChanged.2 * progress)
-        //3.3、设置变化的目标的Label
+        //5.3、设置变化的目标的Label
         targetLbl.textColor = UIColor(r: kNormalColor.0 + colorChanged.0 * progress, g: kNormalColor.1 + colorChanged.1 * progress, b: kNormalColor.2 + colorChanged.2 * progress)
-        if currentIndex == targetIndex {
-            targetLbl.textColor = UIColor(r: kSelectedColor.0, g: kSelectedColor.1, b: kSelectedColor.2)
-        }
-        //4、记录当前的下标
-        self.currentIndex = targetIndex
     }
 }
 
