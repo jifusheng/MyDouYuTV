@@ -8,11 +8,17 @@
 
 import UIKit
 
-class PrettyCollectionCell: UICollectionViewCell {
+class PrettyCollectionCell: BaseCollectionCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - 控件属性
+    @IBOutlet weak private var cityBtn: UIButton!
+    
+    // MARK: - 定义模型属性
+    override var anchor : AnchorModel? {
+        didSet {
+            super.anchor = anchor
+            guard let anchor = anchor else { return }
+            cityBtn.setTitle(" \(anchor.anchor_city)", for: .normal)
+        }
     }
-
 }
