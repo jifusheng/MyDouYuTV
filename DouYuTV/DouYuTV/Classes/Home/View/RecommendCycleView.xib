@@ -14,9 +14,37 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecommendCycleView" customModule="DouYuTV" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="V2Z-ee-WGN">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ORJ-0u-wGh">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="MAt-oz-93Q">
+                    <rect key="frame" x="271" y="83" width="39" height="37"/>
+                    <color key="pageIndicatorTintColor" white="0.0" alpha="0.30097656239999998" colorSpace="calibratedWhite"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.70196078429999997" blue="0.3411764706" alpha="1" colorSpace="deviceRGB"/>
+                </pageControl>
+            </subviews>
             <color key="backgroundColor" red="0.0" green="0.72276551570000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="MAt-oz-93Q" secondAttribute="bottom" id="25J-Nh-tHX"/>
+                <constraint firstAttribute="trailing" secondItem="MAt-oz-93Q" secondAttribute="trailing" constant="10" id="3Ru-hT-EFe"/>
+                <constraint firstAttribute="trailing" secondItem="V2Z-ee-WGN" secondAttribute="trailing" id="MNK-h8-Edb"/>
+                <constraint firstItem="V2Z-ee-WGN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OJT-YV-IZm"/>
+                <constraint firstItem="V2Z-ee-WGN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pn9-qU-RH5"/>
+                <constraint firstAttribute="bottom" secondItem="V2Z-ee-WGN" secondAttribute="bottom" id="zei-32-PFZ"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="V2Z-ee-WGN" id="Qkv-yh-OfN"/>
+                <outlet property="pageControl" destination="MAt-oz-93Q" id="KqC-5c-h5S"/>
+            </connections>
             <point key="canvasLocation" x="6" y="265"/>
         </view>
     </objects>

@@ -13,6 +13,7 @@ private let kItemMargin : CGFloat = 10
 private let kItemWidth : CGFloat = (kScreenW - 3 * kItemMargin) / 2
 private let kNormalItemHeight : CGFloat = kItemWidth * 3 / 4
 private let kPrettyItemHeight : CGFloat = kItemWidth * 4 / 3
+private let kCycleViewH : CGFloat = kScreenW * 3 / 8
 private let kSetionHeaderH : CGFloat = 50
 private let kCellNormalIdentifier = "NormalCollectionCell"
 private let kCellPrettyIdentifier = "PrettyCollectionCell"
@@ -47,6 +48,11 @@ class RecommendViewController: UIViewController {
         collectionView.register(UINib(nibName: "RecommendHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kSetionHeaderIdentifier)
         return collectionView
     }()
+    fileprivate lazy var recommendCycleView : RecommendCycleView = {
+        let cycleView = RecommendCycleView.recommendCycleView()
+        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        return cycleView
+    }()
     fileprivate lazy var recomendVm : RecommendVM = RecommendVM()
     // MARK: - 系统回调函数
     override func viewDidLoad() {
@@ -55,7 +61,6 @@ class RecommendViewController: UIViewController {
         setupUI()
         //2、请求数据
         recomendVm.loadData {[weak self] in
-            
             //3、刷新数据
             self?.collectionView.reloadData()
         }
@@ -67,6 +72,10 @@ extension RecommendViewController {
     fileprivate func setupUI() {
         //1、添加collectionView
         view.addSubview(collectionView)
+        //2、把图片轮播视图添加到collectionView
+        collectionView.addSubview(recommendCycleView)
+        //3、设置collectionView的内边距
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
     }
 }
 

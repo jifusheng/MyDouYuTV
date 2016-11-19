@@ -57,7 +57,6 @@ extension HomeViewController {
     
     private func setupNavigationBar() {
         //设置背景图片
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "Img_orange"), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         //设置左边的item
