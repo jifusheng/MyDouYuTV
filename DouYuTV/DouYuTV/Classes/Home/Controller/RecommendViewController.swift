@@ -75,8 +75,10 @@ extension RecommendViewController {
     func loadData() {
         //1、请求cell中显示数据
         recomendVm.loadData {[weak self] in
-            //3、刷新数据
+            //1.1、刷新数据
             self?.collectionView.reloadData()
+            //1.2、把数据传递个gameView
+            self?.recommendGameView.groups = self?.recomendVm.anchorGroups
         }
         //2、请求图片轮播数据
         recomendVm.loadCycleData { [weak self] in

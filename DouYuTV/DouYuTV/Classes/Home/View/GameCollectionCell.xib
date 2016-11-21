@@ -1,19 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GameCollectionCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GameCollectionCell" customModule="DouYuTV" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_more_btn" translatesAutoresizingMaskIntoConstraints="NO" id="AnL-N1-8HI">
+                        <rect key="frame" x="19" y="15" width="42" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="AnL-N1-8HI" secondAttribute="height" multiplier="1:1" id="CMK-XD-6XA"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="21"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游戏名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08N-nF-MUp">
+                        <rect key="frame" x="0.0" y="65" width="80" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="WJ8-Pj-fDL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="AnL-N1-8HI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="42K-mO-Xe3"/>
+                <constraint firstItem="08N-nF-MUp" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="Qjt-1h-HvG"/>
+                <constraint firstItem="AnL-N1-8HI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Wpx-U1-r3r"/>
+                <constraint firstItem="08N-nF-MUp" firstAttribute="top" secondItem="AnL-N1-8HI" secondAttribute="bottom" constant="8" id="pA9-1i-XKN"/>
+                <constraint firstAttribute="bottom" secondItem="08N-nF-MUp" secondAttribute="bottom" constant="10" id="pku-eM-38k"/>
+                <constraint firstItem="08N-nF-MUp" firstAttribute="centerX" secondItem="AnL-N1-8HI" secondAttribute="centerX" id="xBs-qy-dvL"/>
+            </constraints>
+            <size key="customSize" width="50" height="126"/>
+            <connections>
+                <outlet property="iconView" destination="AnL-N1-8HI" id="9kS-jC-OGR"/>
+                <outlet property="nameLbl" destination="08N-nF-MUp" id="vPz-Oz-prS"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="16"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="home_more_btn" width="44" height="44"/>
+    </resources>
 </document>

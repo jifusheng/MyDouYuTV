@@ -10,9 +10,16 @@ import UIKit
 
 class GameCollectionCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var groupModel : AnchorGroupModel? {
+        didSet {
+            guard let groupModel = groupModel else { return }
+            let url = URL(string: groupModel.icon_url)
+            iconView.kf.setImage(with: url, placeholder: UIImage(named: "home_more_btn"), options: nil, progressBlock: nil, completionHandler: nil)
+            nameLbl.text = groupModel.tag_name
+        }
     }
+    
+    @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
 
 }

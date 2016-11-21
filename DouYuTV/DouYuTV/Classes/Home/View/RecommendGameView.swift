@@ -12,6 +12,20 @@ private let gameIdentifier = "GameCollectionCell"
 
 class RecommendGameView: UIView {
     
+    var groups : [AnchorGroupModel]? {
+        didSet {
+            //移除前两组数据
+            groups?.removeFirst()
+            groups?.removeFirst()
+            //创建更多组数据
+            let moreGroup = AnchorGroupModel()
+            moreGroup.tag_name = "更多"
+            moreGroup.icon_name = "home_more_btn"
+            groups?.append(moreGroup)
+            collectionView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -37,11 +51,11 @@ extension RecommendGameView {
 // MARK: - collectionView的数据源方法
 extension RecommendGameView : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return groups?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gameIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(UInt32(255.0))), g: CGFloat(arc4random_uniform(UInt32(255.0))), b: CGFloat(arc4random_uniform(UInt32(255.0))))
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gameIdentifier, for: indexPath) as! GameCollectionCell
+        cell.groupModel = groups![indexPath.item]
         return cell
     }
 }
