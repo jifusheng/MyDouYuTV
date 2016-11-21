@@ -11,6 +11,7 @@ import UIKit
 // MARK: - 定义常量
 private let kCellNormalIdentifier = "NormalCollectionCell"
 private let kSetionHeaderIdentifier = "kSetionHeaderIdentifier"
+private let kCateViewH : CGFloat = 190
 
 class GameViewController: UIViewController {
     // MARK: - 懒加载属性
@@ -35,7 +36,11 @@ class GameViewController: UIViewController {
         collectionView.register(UINib(nibName: "RecommendHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kSetionHeaderIdentifier)
         return collectionView
     }()
-    
+    fileprivate lazy var cateView : RecommendCateView = {
+        let cateView = RecommendCateView.recommendCateView()
+        cateView.frame = CGRect(x: 0, y: -kCateViewH, width: kScreenW, height: kCateViewH)
+        return cateView
+    }()
     fileprivate lazy var gameVm : GameVM = GameVM()
     
     override func viewDidLoad() {
@@ -51,7 +56,10 @@ class GameViewController: UIViewController {
 extension GameViewController {
     fileprivate func loadData() {
         gameVm.loadAllGameData { [weak self] in
+            //1、刷新数据
             self?.collectionView.reloadData()
+            //2、给cateView传递数据
+            self?.cateView.games = self?.gameVm.games
         }
     }
 }
@@ -61,6 +69,10 @@ extension GameViewController {
     fileprivate func setupUI() {
         //把collectionView添加到view中
         view.addSubview(collectionView)
+        //把cateView添加到collectionView中
+        collectionView.addSubview(cateView)
+        //设置collectionView的内边距
+        collectionView.contentInset = UIEdgeInsets(top: kCateViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -89,7 +101,11 @@ extension GameViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kSetionHeaderIdentifier, for: indexPath) as! RecommendHeaderView
         //取出数据
-        header.baseGroup = gameVm.games[indexPath.section]
+        let gameGroup = gameVm.games[indexPath.section]
+        if indexPath.section == 0 {
+            gameGroup.icon_name = "home_header_hot"
+        }
+        header.baseGroup = gameGroup
         return header
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

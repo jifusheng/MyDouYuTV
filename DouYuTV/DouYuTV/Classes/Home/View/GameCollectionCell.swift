@@ -10,12 +10,12 @@ import UIKit
 
 class GameCollectionCell: UICollectionViewCell {
 
-    var groupModel : AnchorGroupModel? {
+    var baseModel : BaseGroupModel? {
         didSet {
-            guard let groupModel = groupModel else { return }
-            let url = URL(string: groupModel.icon_url)
+            guard let baseModel = baseModel else { return }
+            let url = URL(string: baseModel.icon_url)
             iconView.kf.setImage(with: url, placeholder: UIImage(named: "home_more_btn"))
-            nameLbl.text = groupModel.tag_name
+            nameLbl.text = baseModel.tag_name
         }
     }
     

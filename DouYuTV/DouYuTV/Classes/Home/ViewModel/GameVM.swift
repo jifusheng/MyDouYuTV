@@ -18,7 +18,6 @@ extension GameVM {
     // MARK: - 请求游戏界面的数据
     func loadAllGameData(completionHandler: @escaping () -> Void) {
         NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/homeCate/getHotRoom", type: .get, parameters: ["identification" : "ba08216f13dd1742157412386eee1225"]) { (result) in
-            print(result)
             //获取字典数据
             guard let result = result as? [String : Any] else { return }
             //获取字典中对应key的数据 - 数组

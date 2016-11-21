@@ -16,10 +16,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-vl-nwg">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="eFD-Px-rfd">
-                        <size key="itemSize" width="80" height="90"/>
+                        <size key="itemSize" width="80" height="80"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
@@ -31,7 +31,7 @@
                 <constraint firstItem="zgp-vl-nwg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="EAW-mZ-P1s"/>
                 <constraint firstAttribute="trailing" secondItem="zgp-vl-nwg" secondAttribute="trailing" id="Fsf-4F-wkH"/>
                 <constraint firstItem="zgp-vl-nwg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RyC-WS-2pn"/>
-                <constraint firstAttribute="bottom" secondItem="zgp-vl-nwg" secondAttribute="bottom" id="myP-wm-huF"/>
+                <constraint firstAttribute="bottom" secondItem="zgp-vl-nwg" secondAttribute="bottom" constant="10" id="myP-wm-huF"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -28,6 +28,8 @@
 		7F3C9CF41DE2D1E500704C86 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF31DE2D1E500704C86 /* GameModel.swift */; };
 		7F3C9CF61DE2D79200704C86 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF51DE2D79200704C86 /* BaseGameModel.swift */; };
 		7F3C9CF91DE2E50C00704C86 /* BaseGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF81DE2E50C00704C86 /* BaseGroupModel.swift */; };
+		7F3C9CFB1DE2EB3C00704C86 /* RecommendCateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CFA1DE2EB3C00704C86 /* RecommendCateView.swift */; };
+		7F3C9CFD1DE2EB5D00704C86 /* RecommendCateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CFC1DE2EB5D00704C86 /* RecommendCateView.xib */; };
 		7FB3A8371DDE95080020F75C /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A8361DDE95080020F75C /* RecommendViewController.swift */; };
 		7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */; };
 		7FB3A83F1DDEA3AF0020F75C /* RecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */; };
@@ -77,6 +79,8 @@
 		7F3C9CF51DE2D79200704C86 /* BaseGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
 		7F3C9CF71DE2E1A400704C86 /* http请求资源.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "http请求资源.h"; sourceTree = "<group>"; };
 		7F3C9CF81DE2E50C00704C86 /* BaseGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGroupModel.swift; sourceTree = "<group>"; };
+		7F3C9CFA1DE2EB3C00704C86 /* RecommendCateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCateView.swift; sourceTree = "<group>"; };
+		7F3C9CFC1DE2EB5D00704C86 /* RecommendCateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCateView.xib; sourceTree = "<group>"; };
 		7FB3A8361DDE95080020F75C /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
 		7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				7F3C9CE91DE2A40A00704C86 /* RecommendGameView.xib */,
 				7F3C9CEB1DE2B36700704C86 /* GameCollectionCell.swift */,
 				7F3C9CEC1DE2B36700704C86 /* GameCollectionCell.xib */,
+				7F3C9CFA1DE2EB3C00704C86 /* RecommendCateView.swift */,
+				7F3C9CFC1DE2EB5D00704C86 /* RecommendCateView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 			files = (
 				7F2919981DDFF9C500107BB8 /* RecommendCycleView.xib in Resources */,
 				7FEB21A21DDD456F00B898DF /* Profile.storyboard in Resources */,
+				7F3C9CFD1DE2EB5D00704C86 /* RecommendCateView.xib in Resources */,
 				7FEB21A11DDD456F00B898DF /* Follow.storyboard in Resources */,
 				E17619CE1DB8DCD9003965E2 /* Assets.xcassets in Resources */,
 				7F3C9CE61DE2896700704C86 /* CycleCollectionCell.xib in Resources */,
@@ -545,6 +552,7 @@
 				7F2919901DDF02D400107BB8 /* AnchorGroupModel.swift in Sources */,
 				E1761A081DB900A5003965E2 /* ProfileViewController.swift in Sources */,
 				E17619C71DB8DCD9003965E2 /* AppDelegate.swift in Sources */,
+				7F3C9CFB1DE2EB3C00704C86 /* RecommendCateView.swift in Sources */,
 				7FEB21A41DDD5A8D00B898DF /* PageContentView.swift in Sources */,
 				7F2919861DDEF33B00107BB8 /* NetworkTool.swift in Sources */,
 				E1761A001DB90028003965E2 /* MainViewController.swift in Sources */,
