@@ -4,7 +4,7 @@
 //
 //  Created by 王建伟 on 2016/11/21.
 //  Copyright © 2016年 jifusheng. All rights reserved.
-//
+//  图片轮播模型
 
 import UIKit
 
@@ -16,7 +16,7 @@ class CycleModel: NSObject {
     //图片地址
     var pic_url : String = ""
     //房间字典
-    var room : [String : NSObject]? {
+    var room : [String : Any]? {
         didSet {
             guard let room = room else { return }
             anchor = AnchorModel(dict: room)
@@ -25,7 +25,7 @@ class CycleModel: NSObject {
     //主播模型
     var anchor : AnchorModel?
     
-    init(dict : [String : NSObject]) {
+    init(dict : [String : Any]) {
         super.init()
         setValuesForKeys(dict)
     }

@@ -18,7 +18,7 @@ class CycleCollectionCell: UICollectionViewCell {
         didSet {
             guard let cycleModel = cycleModel else { return }
             let url = URL(string: cycleModel.pic_url)
-            imageView.kf.setImage(with: url, placeholder: UIImage(named : "默认banner图"), options: nil, progressBlock: nil, completionHandler: nil)
+            imageView.kf.setImage(with: url, placeholder: UIImage(named : "默认banner图"))
             titleLbl.setTitle(cycleModel.title, for: .normal)
         }
     }

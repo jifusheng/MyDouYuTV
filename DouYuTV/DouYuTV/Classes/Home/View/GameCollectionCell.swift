@@ -14,7 +14,7 @@ class GameCollectionCell: UICollectionViewCell {
         didSet {
             guard let groupModel = groupModel else { return }
             let url = URL(string: groupModel.icon_url)
-            iconView.kf.setImage(with: url, placeholder: UIImage(named: "home_more_btn"), options: nil, progressBlock: nil, completionHandler: nil)
+            iconView.kf.setImage(with: url, placeholder: UIImage(named: "home_more_btn"))
             nameLbl.text = groupModel.tag_name
         }
     }

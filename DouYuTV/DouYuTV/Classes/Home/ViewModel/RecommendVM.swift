@@ -33,14 +33,14 @@ extension RecommendVM {
         dispatchGroup.enter()
         NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/v1/getbigDataRoom", type: .get, parameters: parameters) { (result) in
             //1、把result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else { return }
+            guard let resultDict = result as? [String : Any] else { return }
             //2、根据key->data取出值
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else { return }
             //3、创建组模型
             self.normalGroup.tag_name = "最热"
             self.normalGroup.icon_name = "home_header_hot"
             //4、遍历数组取出字典后转成模型对象
-            for dict : [String : NSObject] in dataArray {
+            for dict : [String : Any] in dataArray {
                 let anchor = AnchorModel(dict: dict)
                 self.normalGroup.anchors.append(anchor)
             }
@@ -52,14 +52,14 @@ extension RecommendVM {
         dispatchGroup.enter()
         NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/v1/getVerticalRoom", type: .get, parameters: parameters) { (result) in
             //1、把result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else { return }
+            guard let resultDict = result as? [String : Any] else { return }
             //2、根据key->data取出值
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else { return }
             //3、创建组模型
             self.prettyGroup.tag_name = "颜值"
             self.prettyGroup.icon_name = "home_header_phone"
             //4、遍历数组取出字典后转成模型对象
-            for dict : [String : NSObject] in dataArray {
+            for dict : [String : Any] in dataArray {
                 let anchor = AnchorModel(dict: dict)
                 self.prettyGroup.anchors.append(anchor)
             }
@@ -71,11 +71,11 @@ extension RecommendVM {
         dispatchGroup.enter()
         NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/v1/getHotCate", type: .get, parameters: parameters) { (result) in
             //1、把result转成字典类型
-            guard let resultDict = result as? [String : NSObject] else { return }
+            guard let resultDict = result as? [String : Any] else { return }
             //2、根据key->data取出值
-            guard let dataArray = resultDict["data"] as? [[String : NSObject]] else { return }
+            guard let dataArray = resultDict["data"] as? [[String : Any]] else { return }
             //3、遍历数组取出字典后转成模型对象
-            for dict : [String : NSObject] in dataArray {
+            for dict : [String : Any] in dataArray {
                 let group = AnchorGroupModel(dict: dict)
                 self.anchorGroups.append(group)
             }
@@ -100,9 +100,9 @@ extension RecommendVM {
     func loadCycleData(completionHandler: @escaping () -> Void) {
         NetworkTool.requestData(urlString: "http://www.douyutv.com/api/v1/slide/6", type: .get, parameters: ["version" : "2.300"]) { (result) in
             //获取字典数据
-            guard let result = result as? [String : NSObject] else { return }
+            guard let result = result as? [String : Any] else { return }
             //获取字典中对应key的数据 - 数组
-            guard let dataArray = result["data"] as? [[String : NSObject]] else { return }
+            guard let dataArray = result["data"] as? [[String : Any]] else { return }
             //字典转模型
             for dict in dataArray {
                 self.cycleModels.append(CycleModel(dict: dict))

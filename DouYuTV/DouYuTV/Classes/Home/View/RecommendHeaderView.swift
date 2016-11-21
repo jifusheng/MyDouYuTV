@@ -20,10 +20,10 @@ class RecommendHeaderView: UICollectionReusableView {
     }
     
     // MARK: - 定义模型属性
-    var anchorGroup : AnchorGroupModel? {
+    var baseGroup : BaseGroupModel? {
         didSet {
-            logoView.image = UIImage(named: anchorGroup?.icon_name ?? "home_header_phone")
-            headerTitle.text = anchorGroup?.tag_name
+            logoView.image = UIImage(named: baseGroup?.icon_name ?? "home_header_phone")
+            headerTitle.text = baseGroup?.tag_name
         }
     }
     

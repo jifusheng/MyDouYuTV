@@ -19,7 +19,7 @@ class BaseCollectionCell: UICollectionViewCell {
         didSet {
             guard let anchor = anchor else { return }
             let url = URL(string: anchor.vertical_src)
-            iconView.kf.setImage(with: url, placeholder: UIImage(named: "Img_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            iconView.kf.setImage(with: url, placeholder: UIImage(named: "Img_default"))
             nikeNameBtn.setTitle(" \(anchor.nickname)", for: .normal)
             var onlineStr : String = ""
             if anchor.online >= 10000 {

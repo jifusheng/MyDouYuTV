@@ -23,6 +23,11 @@
 		7F3C9CEA1DE2A40A00704C86 /* RecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CE91DE2A40A00704C86 /* RecommendGameView.xib */; };
 		7F3C9CED1DE2B36700704C86 /* GameCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CEB1DE2B36700704C86 /* GameCollectionCell.swift */; };
 		7F3C9CEE1DE2B36700704C86 /* GameCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CEC1DE2B36700704C86 /* GameCollectionCell.xib */; };
+		7F3C9CF01DE2C5E700704C86 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CEF1DE2C5E700704C86 /* GameViewController.swift */; };
+		7F3C9CF21DE2D04100704C86 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF11DE2D04100704C86 /* GameVM.swift */; };
+		7F3C9CF41DE2D1E500704C86 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF31DE2D1E500704C86 /* GameModel.swift */; };
+		7F3C9CF61DE2D79200704C86 /* BaseGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF51DE2D79200704C86 /* BaseGameModel.swift */; };
+		7F3C9CF91DE2E50C00704C86 /* BaseGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CF81DE2E50C00704C86 /* BaseGroupModel.swift */; };
 		7FB3A8371DDE95080020F75C /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A8361DDE95080020F75C /* RecommendViewController.swift */; };
 		7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */; };
 		7FB3A83F1DDEA3AF0020F75C /* RecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */; };
@@ -66,6 +71,12 @@
 		7F3C9CE91DE2A40A00704C86 /* RecommendGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendGameView.xib; sourceTree = "<group>"; };
 		7F3C9CEB1DE2B36700704C86 /* GameCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionCell.swift; sourceTree = "<group>"; };
 		7F3C9CEC1DE2B36700704C86 /* GameCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionCell.xib; sourceTree = "<group>"; };
+		7F3C9CEF1DE2C5E700704C86 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		7F3C9CF11DE2D04100704C86 /* GameVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
+		7F3C9CF31DE2D1E500704C86 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		7F3C9CF51DE2D79200704C86 /* BaseGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGameModel.swift; sourceTree = "<group>"; };
+		7F3C9CF71DE2E1A400704C86 /* http请求资源.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "http请求资源.h"; sourceTree = "<group>"; };
+		7F3C9CF81DE2E50C00704C86 /* BaseGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGroupModel.swift; sourceTree = "<group>"; };
 		7FB3A8361DDE95080020F75C /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
 		7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -112,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				7F2919881DDEFA6900107BB8 /* RecommendVM.swift */,
+				7F3C9CF11DE2D04100704C86 /* GameVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -119,6 +131,8 @@
 		7F29198E1DDF02B100107BB8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F3C9CF51DE2D79200704C86 /* BaseGameModel.swift */,
+				7F3C9CF81DE2E50C00704C86 /* BaseGroupModel.swift */,
 				7F29198F1DDF02D400107BB8 /* AnchorGroupModel.swift */,
 				7F2919911DDF056000107BB8 /* AnchorModel.swift */,
 			);
@@ -129,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				7F3C9CE11DE284E300704C86 /* CycleModel.swift */,
+				7F3C9CF31DE2D1E500704C86 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +283,7 @@
 			children = (
 				E1761A011DB90071003965E2 /* HomeViewController.swift */,
 				7FB3A8361DDE95080020F75C /* RecommendViewController.swift */,
+				7F3C9CEF1DE2C5E700704C86 /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,6 +324,7 @@
 		E17619E51DB8F01C003965E2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7F3C9CF71DE2E1A400704C86 /* http请求资源.h */,
 				E17619CA1DB8DCD9003965E2 /* Main.storyboard */,
 				7F29198E1DDF02B100107BB8 /* Model */,
 				E17619E61DB8F01C003965E2 /* Controller */,
@@ -536,15 +553,20 @@
 				7FEB21961DDD3B6A00B898DF /* Common.swift in Sources */,
 				E1761A061DB90098003965E2 /* FollowViewController.swift in Sources */,
 				7F3C9CED1DE2B36700704C86 /* GameCollectionCell.swift in Sources */,
+				7F3C9CF21DE2D04100704C86 /* GameVM.swift in Sources */,
 				7F3C9CE81DE2A3F700704C86 /* RecommendGameView.swift in Sources */,
+				7F3C9CF41DE2D1E500704C86 /* GameModel.swift in Sources */,
+				7F3C9CF01DE2C5E700704C86 /* GameViewController.swift in Sources */,
 				7F29198D1DDEFD5900107BB8 /* NSDate-Extension.swift in Sources */,
 				7FB3A8421DDEB2880020F75C /* NormalCollectionCell.swift in Sources */,
 				7F2919941DDFF16A00107BB8 /* BaseCollectionCell.swift in Sources */,
 				7FB3A8461DDECB330020F75C /* PrettyCollectionCell.swift in Sources */,
 				E1761A041DB9008C003965E2 /* LiveViewController.swift in Sources */,
 				7F3C9CE51DE2896700704C86 /* CycleCollectionCell.swift in Sources */,
+				7F3C9CF91DE2E50C00704C86 /* BaseGroupModel.swift in Sources */,
 				7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */,
 				7F2919921DDF056000107BB8 /* AnchorModel.swift in Sources */,
+				7F3C9CF61DE2D79200704C86 /* BaseGameModel.swift in Sources */,
 				E1761A021DB90071003965E2 /* HomeViewController.swift in Sources */,
 				E1761A0B1DB908E4003965E2 /* UIBarButtonItem-Extension.swift in Sources */,
 				7F2919961DDFF72900107BB8 /* RecommendCycleView.swift in Sources */,
@@ -699,12 +721,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6BC3A54B392B1EAAB97637C /* Pods-DouYuTV.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 3MMKWB3L38;
 				INFOPLIST_FILE = DouYuTV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PODS_ROOT = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jifusheng.DouYuTV;
@@ -718,12 +740,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9670878A78E16958129FF475 /* Pods-DouYuTV.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 3MMKWB3L38;
 				INFOPLIST_FILE = DouYuTV/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PODS_ROOT = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jifusheng.DouYuTV;

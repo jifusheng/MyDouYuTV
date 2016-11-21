@@ -9,13 +9,9 @@
 import UIKit
 
 // MARK: - 定义常量
-private let kItemMargin : CGFloat = 10
-private let kItemWidth : CGFloat = (kScreenW - 3 * kItemMargin) / 2
-private let kNormalItemHeight : CGFloat = kItemWidth * 3 / 4
 private let kPrettyItemHeight : CGFloat = kItemWidth * 4 / 3
 private let kCycleViewH : CGFloat = kScreenW * 3 / 8
 private let kGameViewH : CGFloat = 90
-private let kSetionHeaderH : CGFloat = 50
 private let kCellNormalIdentifier = "NormalCollectionCell"
 private let kCellPrettyIdentifier = "PrettyCollectionCell"
 private let kSetionHeaderIdentifier = "kSetionHeaderIdentifier"
@@ -134,7 +130,7 @@ extension RecommendViewController : UICollectionViewDelegate,UICollectionViewDel
         //取出缓存池中的header 
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kSetionHeaderIdentifier, for: indexPath) as! RecommendHeaderView
         //取出数据
-        header.anchorGroup = recomendVm.anchorGroups[indexPath.section]
+        header.baseGroup = recomendVm.anchorGroups[indexPath.section]
         return header
     }
     

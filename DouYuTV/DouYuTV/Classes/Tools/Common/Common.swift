@@ -18,6 +18,12 @@ let kTabBarH : CGFloat = 49
 let kScreenW = UIScreen.main.bounds.size.width
 let kScreenH = UIScreen.main.bounds.size.height
 
+//有关cell的宽高
+let kItemMargin : CGFloat = 10
+let kItemWidth : CGFloat = (kScreenW - 3 * kItemMargin) / 2
+let kNormalItemHeight : CGFloat = kItemWidth * 3 / 4
+let kSetionHeaderH : CGFloat = 50
+
 let kRandomColor = UIColor(r: CGFloat(arc4random_uniform(UInt32(255.0))), g: CGFloat(arc4random_uniform(UInt32(255.0))), b: CGFloat(arc4random_uniform(UInt32(255.0))))
 
     
