@@ -14,6 +14,7 @@ private let kItemWidth : CGFloat = (kScreenW - 3 * kItemMargin) / 2
 private let kNormalItemHeight : CGFloat = kItemWidth * 3 / 4
 private let kPrettyItemHeight : CGFloat = kItemWidth * 4 / 3
 private let kCycleViewH : CGFloat = kScreenW * 3 / 8
+private let kGameViewH : CGFloat = 90
 private let kSetionHeaderH : CGFloat = 50
 private let kCellNormalIdentifier = "NormalCollectionCell"
 private let kCellPrettyIdentifier = "PrettyCollectionCell"
@@ -50,8 +51,13 @@ class RecommendViewController: UIViewController {
     }()
     fileprivate lazy var recommendCycleView : RecommendCycleView = {
         let cycleView = RecommendCycleView.recommendCycleView()
-        cycleView.frame = CGRect(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        cycleView.frame = CGRect(x: 0, y: -(kCycleViewH + kGameViewH), width: kScreenW, height: kCycleViewH)
         return cycleView
+    }()
+    fileprivate lazy var recommendGameView : RecommendGameView = {
+        let gameView = RecommendGameView.recommendGameView()
+        gameView.frame = CGRect(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
+        return gameView
     }()
     fileprivate lazy var recomendVm : RecommendVM = RecommendVM()
     // MARK: - 系统回调函数
@@ -60,9 +66,21 @@ class RecommendViewController: UIViewController {
         //1、设置UI界面
         setupUI()
         //2、请求数据
+        loadData()
+    }
+}
+
+// MARK: - 加载数据
+extension RecommendViewController {
+    func loadData() {
+        //1、请求cell中显示数据
         recomendVm.loadData {[weak self] in
             //3、刷新数据
             self?.collectionView.reloadData()
+        }
+        //2、请求图片轮播数据
+        recomendVm.loadCycleData { [weak self] in
+            self?.recommendCycleView.cycleModels = self?.recomendVm.cycleModels
         }
     }
 }
@@ -74,8 +92,10 @@ extension RecommendViewController {
         view.addSubview(collectionView)
         //2、把图片轮播视图添加到collectionView
         collectionView.addSubview(recommendCycleView)
-        //3、设置collectionView的内边距
-        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH, left: 0, bottom: 0, right: 0)
+        //3、把游戏视图添加到collectionView
+        collectionView.addSubview(recommendGameView)
+        //4、设置collectionView的内边距
+        collectionView.contentInset = UIEdgeInsets(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
@@ -129,6 +149,14 @@ extension RecommendViewController : UICollectionViewDelegate,UICollectionViewDel
             size = CGSize(width: kItemWidth, height: kNormalItemHeight)
         }
         return size
+    }
+    
+    // MARK: - 监听collectionView的滚动
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        recommendCycleView.removeCycleTimer()
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        recommendCycleView.addCycleTimer()
     }
 }
 

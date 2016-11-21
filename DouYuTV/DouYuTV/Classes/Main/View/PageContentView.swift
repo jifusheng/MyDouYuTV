@@ -34,10 +34,11 @@ class PageContentView: UIView {
         layout.scrollDirection = .horizontal
         //创建collectionView
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.bounces = false
+        collectionView.bounces = true
         collectionView.isPagingEnabled = true
         collectionView.register(UICollectionViewCell.self,forCellWithReuseIdentifier:Identifier)
         return collectionView

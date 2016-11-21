@@ -13,10 +13,13 @@ class RecommendVM {
     lazy var anchorGroups : [AnchorGroupModel] = [AnchorGroupModel]()
     fileprivate lazy var normalGroup : AnchorGroupModel = AnchorGroupModel()
     fileprivate lazy var prettyGroup : AnchorGroupModel = AnchorGroupModel()
+    
+    lazy var cycleModels : [CycleModel] = [CycleModel]()
 }
 
 // MARK: - 发送网络请求
 extension RecommendVM {
+    // MARK: - 请求推荐数据
     func loadData(completionHandler:@escaping () -> Void) {
         //0、定义参数
         let parameters : [String : Any] = ["limit" : 4,
@@ -92,4 +95,23 @@ extension RecommendVM {
             completionHandler()
         }
     }
+    
+    // MARK: - 请求图片轮播数据
+    func loadCycleData(completionHandler: @escaping () -> Void) {
+        NetworkTool.requestData(urlString: "http://www.douyutv.com/api/v1/slide/6", type: .get, parameters: ["version" : "2.300"]) { (result) in
+            //获取字典数据
+            guard let result = result as? [String : NSObject] else { return }
+            //获取字典中对应key的数据 - 数组
+            guard let dataArray = result["data"] as? [[String : NSObject]] else { return }
+            //字典转模型
+            for dict in dataArray {
+                self.cycleModels.append(CycleModel(dict: dict))
+            }
+            completionHandler()
+        }
+    }
 }
+
+
+
+

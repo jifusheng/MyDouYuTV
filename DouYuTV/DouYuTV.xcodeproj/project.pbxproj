@@ -16,6 +16,13 @@
 		7F2919941DDFF16A00107BB8 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2919931DDFF16A00107BB8 /* BaseCollectionCell.swift */; };
 		7F2919961DDFF72900107BB8 /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2919951DDFF72900107BB8 /* RecommendCycleView.swift */; };
 		7F2919981DDFF9C500107BB8 /* RecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F2919971DDFF9C500107BB8 /* RecommendCycleView.xib */; };
+		7F3C9CE21DE284E300704C86 /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CE11DE284E300704C86 /* CycleModel.swift */; };
+		7F3C9CE51DE2896700704C86 /* CycleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CE31DE2896700704C86 /* CycleCollectionCell.swift */; };
+		7F3C9CE61DE2896700704C86 /* CycleCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CE41DE2896700704C86 /* CycleCollectionCell.xib */; };
+		7F3C9CE81DE2A3F700704C86 /* RecommendGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CE71DE2A3F700704C86 /* RecommendGameView.swift */; };
+		7F3C9CEA1DE2A40A00704C86 /* RecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CE91DE2A40A00704C86 /* RecommendGameView.xib */; };
+		7F3C9CED1DE2B36700704C86 /* GameCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3C9CEB1DE2B36700704C86 /* GameCollectionCell.swift */; };
+		7F3C9CEE1DE2B36700704C86 /* GameCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CEC1DE2B36700704C86 /* GameCollectionCell.xib */; };
 		7FB3A8371DDE95080020F75C /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A8361DDE95080020F75C /* RecommendViewController.swift */; };
 		7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */; };
 		7FB3A83F1DDEA3AF0020F75C /* RecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */; };
@@ -52,6 +59,13 @@
 		7F2919931DDFF16A00107BB8 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
 		7F2919951DDFF72900107BB8 /* RecommendCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCycleView.swift; sourceTree = "<group>"; };
 		7F2919971DDFF9C500107BB8 /* RecommendCycleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCycleView.xib; sourceTree = "<group>"; };
+		7F3C9CE11DE284E300704C86 /* CycleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
+		7F3C9CE31DE2896700704C86 /* CycleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CycleCollectionCell.swift; sourceTree = "<group>"; };
+		7F3C9CE41DE2896700704C86 /* CycleCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CycleCollectionCell.xib; sourceTree = "<group>"; };
+		7F3C9CE71DE2A3F700704C86 /* RecommendGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendGameView.swift; sourceTree = "<group>"; };
+		7F3C9CE91DE2A40A00704C86 /* RecommendGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendGameView.xib; sourceTree = "<group>"; };
+		7F3C9CEB1DE2B36700704C86 /* GameCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionCell.swift; sourceTree = "<group>"; };
+		7F3C9CEC1DE2B36700704C86 /* GameCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCollectionCell.xib; sourceTree = "<group>"; };
 		7FB3A8361DDE95080020F75C /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
 		7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -114,6 +128,7 @@
 		7FB3A83A1DDEA3110020F75C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F3C9CE11DE284E300704C86 /* CycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +140,12 @@
 				7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */,
 				7F2919951DDFF72900107BB8 /* RecommendCycleView.swift */,
 				7F2919971DDFF9C500107BB8 /* RecommendCycleView.xib */,
+				7F3C9CE31DE2896700704C86 /* CycleCollectionCell.swift */,
+				7F3C9CE41DE2896700704C86 /* CycleCollectionCell.xib */,
+				7F3C9CE71DE2A3F700704C86 /* RecommendGameView.swift */,
+				7F3C9CE91DE2A40A00704C86 /* RecommendGameView.xib */,
+				7F3C9CEB1DE2B36700704C86 /* GameCollectionCell.swift */,
+				7F3C9CEC1DE2B36700704C86 /* GameCollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,6 +425,7 @@
 				TargetAttributes = {
 					E17619C21DB8DCD9003965E2 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 3MMKWB3L38;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -435,6 +457,9 @@
 				7FEB21A21DDD456F00B898DF /* Profile.storyboard in Resources */,
 				7FEB21A11DDD456F00B898DF /* Follow.storyboard in Resources */,
 				E17619CE1DB8DCD9003965E2 /* Assets.xcassets in Resources */,
+				7F3C9CE61DE2896700704C86 /* CycleCollectionCell.xib in Resources */,
+				7F3C9CEA1DE2A40A00704C86 /* RecommendGameView.xib in Resources */,
+				7F3C9CEE1DE2B36700704C86 /* GameCollectionCell.xib in Resources */,
 				E17619CC1DB8DCD9003965E2 /* Main.storyboard in Resources */,
 				7FB3A8471DDECB330020F75C /* PrettyCollectionCell.xib in Resources */,
 				7FB3A83F1DDEA3AF0020F75C /* RecommendHeaderView.xib in Resources */,
@@ -510,16 +535,20 @@
 				7F2919891DDEFA6900107BB8 /* RecommendVM.swift in Sources */,
 				7FEB21961DDD3B6A00B898DF /* Common.swift in Sources */,
 				E1761A061DB90098003965E2 /* FollowViewController.swift in Sources */,
+				7F3C9CED1DE2B36700704C86 /* GameCollectionCell.swift in Sources */,
+				7F3C9CE81DE2A3F700704C86 /* RecommendGameView.swift in Sources */,
 				7F29198D1DDEFD5900107BB8 /* NSDate-Extension.swift in Sources */,
 				7FB3A8421DDEB2880020F75C /* NormalCollectionCell.swift in Sources */,
 				7F2919941DDFF16A00107BB8 /* BaseCollectionCell.swift in Sources */,
 				7FB3A8461DDECB330020F75C /* PrettyCollectionCell.swift in Sources */,
 				E1761A041DB9008C003965E2 /* LiveViewController.swift in Sources */,
+				7F3C9CE51DE2896700704C86 /* CycleCollectionCell.swift in Sources */,
 				7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */,
 				7F2919921DDF056000107BB8 /* AnchorModel.swift in Sources */,
 				E1761A021DB90071003965E2 /* HomeViewController.swift in Sources */,
 				E1761A0B1DB908E4003965E2 /* UIBarButtonItem-Extension.swift in Sources */,
 				7F2919961DDFF72900107BB8 /* RecommendCycleView.swift in Sources */,
+				7F3C9CE21DE284E300704C86 /* CycleModel.swift in Sources */,
 				7FEB21A81DDD5F3800B898DF /* UIColor-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -658,7 +687,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -673,7 +702,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3MMKWB3L38;
 				INFOPLIST_FILE = DouYuTV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -692,7 +721,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3MMKWB3L38;
 				INFOPLIST_FILE = DouYuTV/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
