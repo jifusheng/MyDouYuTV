@@ -23,10 +23,12 @@ class RecommendCycleView: UIView {
             collectionView.reloadData()
             //2、设置pageControl的个数
             pageControl.numberOfPages = cycleModels?.count ?? 0
-            //3、默认让collectionView滚动到中间某一个item
+            //3、显示pageControl
+            pageControl.isHidden = false
+            //4、默认让collectionView滚动到中间某一个item
             let indexPath = IndexPath(item: pageControl.numberOfPages * 100, section: 0)
             collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
-            //4、添加定时器(先移除后添加)
+            //5、添加定时器(先移除后添加)
             removeCycleTimer()
             addCycleTimer()
         }
@@ -36,6 +38,8 @@ class RecommendCycleView: UIView {
         super.awakeFromNib()
         //设置该控件不随父控件的拉伸而拉伸
         autoresizingMask = .init(rawValue: 0)
+        //隐藏pageControl
+        pageControl.isHidden = true
         //设置collectionView的数据源和代理
         collectionView.dataSource = self
         collectionView.delegate = self

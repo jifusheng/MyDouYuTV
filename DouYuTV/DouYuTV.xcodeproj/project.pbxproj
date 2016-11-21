@@ -54,6 +54,9 @@
 		E1761A061DB90098003965E2 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1761A051DB90098003965E2 /* FollowViewController.swift */; };
 		E1761A081DB900A5003965E2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1761A071DB900A5003965E2 /* ProfileViewController.swift */; };
 		E1761A0B1DB908E4003965E2 /* UIBarButtonItem-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1761A0A1DB908E4003965E2 /* UIBarButtonItem-Extension.swift */; };
+		E1D052921DE3140400ABD88E /* HomeBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D052911DE3140400ABD88E /* HomeBaseViewController.swift */; };
+		E1D052941DE3154100ABD88E /* EntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D052931DE3154100ABD88E /* EntertainmentViewController.swift */; };
+		E1D052961DE31EC300ABD88E /* FunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D052951DE31EC300ABD88E /* FunViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +112,9 @@
 		E1761A051DB90098003965E2 /* FollowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		E1761A071DB900A5003965E2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E1761A0A1DB908E4003965E2 /* UIBarButtonItem-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem-Extension.swift"; sourceTree = "<group>"; };
+		E1D052911DE3140400ABD88E /* HomeBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBaseViewController.swift; sourceTree = "<group>"; };
+		E1D052931DE3154100ABD88E /* EntertainmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntertainmentViewController.swift; sourceTree = "<group>"; };
+		E1D052951DE31EC300ABD88E /* FunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,8 +294,11 @@
 			isa = PBXGroup;
 			children = (
 				E1761A011DB90071003965E2 /* HomeViewController.swift */,
+				E1D052911DE3140400ABD88E /* HomeBaseViewController.swift */,
 				7FB3A8361DDE95080020F75C /* RecommendViewController.swift */,
 				7F3C9CEF1DE2C5E700704C86 /* GameViewController.swift */,
+				E1D052931DE3154100ABD88E /* EntertainmentViewController.swift */,
+				E1D052951DE31EC300ABD88E /* FunViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -557,6 +566,7 @@
 				7F2919861DDEF33B00107BB8 /* NetworkTool.swift in Sources */,
 				E1761A001DB90028003965E2 /* MainViewController.swift in Sources */,
 				7FB3A8371DDE95080020F75C /* RecommendViewController.swift in Sources */,
+				E1D052941DE3154100ABD88E /* EntertainmentViewController.swift in Sources */,
 				7F2919891DDEFA6900107BB8 /* RecommendVM.swift in Sources */,
 				7FEB21961DDD3B6A00B898DF /* Common.swift in Sources */,
 				E1761A061DB90098003965E2 /* FollowViewController.swift in Sources */,
@@ -570,11 +580,13 @@
 				7F2919941DDFF16A00107BB8 /* BaseCollectionCell.swift in Sources */,
 				7FB3A8461DDECB330020F75C /* PrettyCollectionCell.swift in Sources */,
 				E1761A041DB9008C003965E2 /* LiveViewController.swift in Sources */,
+				E1D052921DE3140400ABD88E /* HomeBaseViewController.swift in Sources */,
 				7F3C9CE51DE2896700704C86 /* CycleCollectionCell.swift in Sources */,
 				7F3C9CF91DE2E50C00704C86 /* BaseGroupModel.swift in Sources */,
 				7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */,
 				7F2919921DDF056000107BB8 /* AnchorModel.swift in Sources */,
 				7F3C9CF61DE2D79200704C86 /* BaseGameModel.swift in Sources */,
+				E1D052961DE31EC300ABD88E /* FunViewController.swift in Sources */,
 				E1761A021DB90071003965E2 /* HomeViewController.swift in Sources */,
 				E1761A0B1DB908E4003965E2 /* UIBarButtonItem-Extension.swift in Sources */,
 				7F2919961DDFF72900107BB8 /* RecommendCycleView.swift in Sources */,

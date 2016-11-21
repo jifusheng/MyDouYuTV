@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
         titleView.delegate = self
         return titleView
     }()
+    
     fileprivate lazy var pageContentView : PageContentView = { [weak self] in
         //1、设置frame
         let contentH = kScreenH - kTabBarH - kStatusBarH - kNavigationH - kPageTitleViewH
@@ -25,11 +26,8 @@ class HomeViewController: UIViewController {
         var childVcs = [UIViewController]()
         childVcs.append(RecommendViewController())
         childVcs.append(GameViewController())
-        for _ in 0..<(self?.titles)!.count - 2 {
-            let childVc = UIViewController()
-            childVc.view.backgroundColor = UIColor(r: CGFloat(arc4random_uniform(UInt32(255.0))), g: CGFloat(arc4random_uniform(UInt32(255.0))), b: CGFloat(arc4random_uniform(UInt32(255.0))))
-            childVcs.append(childVc)
-        }
+        childVcs.append(EntertainmentViewController())
+        childVcs.append(FunViewController())
         let pageContentView = PageContentView(frame: contentFrame, childVcs: childVcs, parentVc: self)
         pageContentView.delegate = self
         return pageContentView

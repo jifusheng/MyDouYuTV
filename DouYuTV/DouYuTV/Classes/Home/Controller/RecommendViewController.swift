@@ -126,7 +126,7 @@ extension RecommendViewController : UICollectionViewDataSource {
 // MARK: - 实现collectionView的代理方法
 extension RecommendViewController : UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     // MARK: - UICollectionViewDelegate
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    @objc(collectionView:viewForSupplementaryElementOfKind:atIndexPath:) func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //取出缓存池中的header 
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kSetionHeaderIdentifier, for: indexPath) as! RecommendHeaderView
         //取出数据

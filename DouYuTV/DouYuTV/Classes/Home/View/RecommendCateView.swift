@@ -27,20 +27,26 @@ class RecommendCateView: UIView {
                     cateArray.append(gameM)
                 }
             }
-            //创建一个新的模型添加到数组
-            let gameModel = GameModel()
-            gameModel.tag_name = "更多分类"
-            cateArray.append(gameModel)
+            if games!.count > 15 {
+                //创建一个新的模型添加到数组
+                let gameModel = GameModel()
+                gameModel.tag_name = "更多分类"
+                cateArray.append(gameModel)
+            }
             //刷新数据
             collectionView.reloadData()
             //设置pageControl
             pageControl.numberOfPages = 2
+            //显示pageControl
+            pageControl.isHidden = false
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         autoresizingMask = .init(rawValue: 0)
+        //隐藏pageControl
+        pageControl.isHidden = true
         //设置collectionView的数据源和代理
         collectionView.dataSource = self
         collectionView.delegate = self;
