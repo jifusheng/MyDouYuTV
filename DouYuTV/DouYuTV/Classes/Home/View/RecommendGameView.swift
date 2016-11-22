@@ -12,7 +12,7 @@ private let gameIdentifier = "GameCollectionCell"
 
 class RecommendGameView: UIView {
     
-    var groups : [AnchorGroupModel]? {
+    var groups : [BaseGroupModel]? {
         didSet {
             //移除前两组数据
             groups?.removeFirst()

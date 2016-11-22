@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
         //1、设置frame
         let contentH = kScreenH - kTabBarH - kStatusBarH - kNavigationH - kPageTitleViewH
         let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH + kPageTitleViewH, width: kScreenW, height: contentH)
-        //创建自控制器
+        //创建子控制器
         var childVcs = [UIViewController]()
         childVcs.append(RecommendViewController())
         childVcs.append(GameViewController())

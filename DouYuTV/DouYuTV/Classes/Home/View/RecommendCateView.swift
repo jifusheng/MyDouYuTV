@@ -15,9 +15,9 @@ class RecommendCateView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    fileprivate var cateArray : [GameModel] = [GameModel]()
+    fileprivate var cateArray : [BaseGroupModel] = [BaseGroupModel]()
     
-    var games : [GameModel]? {
+    var games : [BaseGroupModel]? {
         didSet {
             //移除第一个数据
             games?.removeFirst()

@@ -70,7 +70,7 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController {
     func loadData() {
         //1、请求cell中显示数据
-        recomendVm.loadData {[weak self] in
+        recomendVm.loadRecommendData {[weak self] in
             //1.1、刷新数据
             self?.collectionView.reloadData()
             //1.2、把数据传递个gameView

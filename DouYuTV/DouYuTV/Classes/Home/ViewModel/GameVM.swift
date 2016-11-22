@@ -8,54 +8,15 @@
 
 import UIKit
 
-class GameVM {
-    //定义属性
-    var games : [GameModel] = [GameModel]()
+class GameVM : BaseViewModel {
+    
 }
 
 // MARK: - 请求所以游戏数据
 extension GameVM {
     // MARK: - 请求游戏界面的数据
     func loadAllGameData(completionHandler: @escaping () -> Void) {
-        NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/homeCate/getHotRoom", type: .get, parameters: ["identification" : "ba08216f13dd1742157412386eee1225"]) { (result) in
-            //获取字典数据
-            guard let result = result as? [String : Any] else { return }
-            //获取字典中对应key的数据 - 数组
-            guard let dataArray = result["data"] as? [[String : Any]] else { return }
-            //字典转模型
-            for dict in dataArray {
-                self.games.append(GameModel(dict: dict))
-            }
-            completionHandler()
-        }
-    }
-    
-    func loadAllEntertainmentData(completionHandler: @escaping () -> Void) {
-        NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/homeCate/getHotRoom", type: .get, parameters: ["identification" : "9acf9c6f117a4c2d02de30294ec29da9"]) { (result) in
-            //获取字典数据
-            guard let result = result as? [String : Any] else { return }
-            //获取字典中对应key的数据 - 数组
-            guard let dataArray = result["data"] as? [[String : Any]] else { return }
-            //字典转模型
-            for dict in dataArray {
-                self.games.append(GameModel(dict: dict))
-            }
-            completionHandler()
-        }
-    }
-    
-    func loadAllfunData(completionHandler: @escaping () -> Void) {
-        NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/homeCate/getHotRoom", type: .get, parameters: ["identification" : "393b245e8046605f6f881d415949494c"]) { (result) in
-            //获取字典数据
-            guard let result = result as? [String : Any] else { return }
-            //获取字典中对应key的数据 - 数组
-            guard let dataArray = result["data"] as? [[String : Any]] else { return }
-            //字典转模型
-            for dict in dataArray {
-                self.games.append(GameModel(dict: dict))
-            }
-            completionHandler()
-        }
+        loadAnchorData(urlString: "http://capi.douyucdn.cn/api/homeCate/getHotRoom", parameters: ["identification" : "ba08216f13dd1742157412386eee1225"], completionHandler: completionHandler)
     }
 }
 

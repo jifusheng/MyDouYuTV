@@ -56,7 +56,6 @@ class PageContentView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 // MARK: - 添加子控件
@@ -80,6 +79,7 @@ extension PageContentView : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("UICollectionViewCell \(indexPath.item)")
         //取出缓存池中的cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier, for: indexPath)
         //由于重复利用，可能重复添加

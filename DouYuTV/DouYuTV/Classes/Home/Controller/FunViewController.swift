@@ -8,24 +8,37 @@
 
 import UIKit
 
+private let kCateViewH : CGFloat = 190
+
 class FunViewController: HomeBaseViewController {
 
+    fileprivate var funVm = FunVM()
+    
+    fileprivate lazy var cateView : RecommendCateView = {
+        let cateView = RecommendCateView.recommendCateView()
+        cateView.frame = CGRect(x: 0, y: -kCateViewH, width: kScreenW, height: kCateViewH)
+        return cateView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //加载趣玩数据
-        loadAllFunData()
+        //1、把cateView添加到collectionView中
+        collectionView.addSubview(cateView)
+        //2、设置collectionView的内边距
+        collectionView.contentInset = UIEdgeInsets(top: kCateViewH, left: 0, bottom: 0, right: 0)
     }
 }
 
 // Mark - 加载数据
 extension FunViewController {
     // Mark - 加载趣玩数据
-    func loadAllFunData() {
-        gameVm.loadAllfunData { [weak self] in
+    override func loadData() {
+        funVm.loadAllFunData { [weak self] in
+            self?.baseVm = self?.funVm
             //1、刷新数据
             self?.collectionView.reloadData()
             //2、给cateView传递数据
-            self?.cateView.games = self?.gameVm.games
+            self?.cateView.games = self?.funVm.anchorGroups
         }
     }
 }

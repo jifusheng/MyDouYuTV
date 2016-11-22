@@ -8,9 +8,8 @@
 
 import UIKit
 
-class RecommendVM {
+class RecommendVM : BaseViewModel {
     // MARK: - 懒加载属性
-    lazy var anchorGroups : [AnchorGroupModel] = [AnchorGroupModel]()
     fileprivate lazy var normalGroup : AnchorGroupModel = AnchorGroupModel()
     fileprivate lazy var prettyGroup : AnchorGroupModel = AnchorGroupModel()
     
@@ -20,7 +19,7 @@ class RecommendVM {
 // MARK: - 发送网络请求
 extension RecommendVM {
     // MARK: - 请求推荐数据
-    func loadData(completionHandler:@escaping () -> Void) {
+    func loadRecommendData(completionHandler:@escaping () -> Void) {
         //0、定义参数
         let parameters : [String : Any] = ["limit" : 4,
                           "offset" : 0,
@@ -69,23 +68,8 @@ extension RecommendVM {
         //4、请求第三部分(2-12组)的游戏数据
         //进入组
         dispatchGroup.enter()
-        NetworkTool.requestData(urlString: "http://capi.douyucdn.cn/api/v1/getHotCate", type: .get, parameters: parameters) { (result) in
-            //1、把result转成字典类型
-            guard let resultDict = result as? [String : Any] else { return }
-            //2、根据key->data取出值
-            guard let dataArray = resultDict["data"] as? [[String : Any]] else { return }
-            //3、遍历数组取出字典后转成模型对象
-            for dict : [String : Any] in dataArray {
-                let group = AnchorGroupModel(dict: dict)
-                self.anchorGroups.append(group)
-            }
-            //4、处理数据，如果主播组里没有主播就删除该主播组
-            for (index ,group) in self.anchorGroups.enumerated() {
-                if group.anchors.count == 0 {
-                    self.anchorGroups.remove(at: index)
-                }
-            }
-            //5、离开组
+        loadAnchorData(urlString: "http://capi.douyucdn.cn/api/v1/getHotCate", parameters: parameters) {
+            //离开组
             dispatchGroup.leave()
         }
         //5、所以数据全部请求完成后排序
