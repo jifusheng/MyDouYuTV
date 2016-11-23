@@ -14,7 +14,7 @@ class AnchorModel: NSObject {
     var room_id : Int = 0
     //房间图片对应的地址
     var vertical_src : String = ""
-    //判断主播所用的设备 0、电脑 1、手机
+    //判断主播所用的设备 0、电脑（Normal） 1、手机（Show）
     var isVertical : Int = 0
     //房间名称
     var room_name : String = ""

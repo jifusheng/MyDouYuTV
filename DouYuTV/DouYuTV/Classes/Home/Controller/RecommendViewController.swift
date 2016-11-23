@@ -36,10 +36,19 @@ extension RecommendViewController {
         //1、请求cell中显示数据
         baseVm = recomendVm
         recomendVm.loadRecommendData {[weak self] in
-            //1.1、刷新数据
+            //1、数据处理
+            guard let groups = self?.recomendVm.anchorGroups else { return }
+            for (index ,group) in groups.enumerated() {
+                if group.anchors.count == 0 {
+                    self?.baseVm.anchorGroups.remove(at: index)
+                }
+            }
+            //2、刷新数据
             self?.collectionView.reloadData()
-            //1.2、把数据传递个gameView
+            //3、把数据传递个gameView
             self?.recommendGameView.groups = self?.recomendVm.anchorGroups
+            //4、结束动画
+            self?.loadDataCompletion()
         }
         //2、请求图片轮播数据
         recomendVm.loadCycleData { [weak self] in
@@ -73,10 +82,6 @@ extension RecommendViewController : UICollectionViewDelegateFlowLayout {
         } else {
             return super.collectionView(collectionView, cellForItemAt: indexPath)
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout

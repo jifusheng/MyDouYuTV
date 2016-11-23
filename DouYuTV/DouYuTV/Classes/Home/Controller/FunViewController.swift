@@ -47,6 +47,8 @@ extension FunViewController {
                 //2、设置collectionView的内边距
                 self?.collectionView.contentInset = UIEdgeInsets(top: kCateViewH - 15, left: 0, bottom: 0, right: 0)
             }
+            //3、结束动画
+            self?.loadDataCompletion()
         }
     }
 }

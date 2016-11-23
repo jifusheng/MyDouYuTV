@@ -13,7 +13,7 @@ let kCellNormalIdentifier = "NormalCollectionCell"
 let kCellPrettyIdentifier = "PrettyCollectionCell"
 private let kSetionHeaderIdentifier = "kSetionHeaderIdentifier"
 
-class HomeBaseViewController: UIViewController {
+class HomeBaseViewController: BaseViewController {
     
     // MARK: - 定义属性需子类使用
     var baseVm : BaseViewModel!
@@ -53,9 +53,15 @@ class HomeBaseViewController: UIViewController {
 
 // MARK: - 设置UI界面
 extension HomeBaseViewController {
-    func setupUI() {
-        //把collectionView添加到view中
+    override func setupUI() {
+        //1、给父类的contentView赋值
+        contentView = collectionView
+        
+        //2、把collectionView添加到view中
         view.addSubview(collectionView)
+        
+        //3、调用父类的方法
+        super.setupUI()
     }
 }
 
@@ -92,5 +98,22 @@ extension HomeBaseViewController : UICollectionViewDelegate {
         }
         header.baseGroup = gameGroup
         return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //1、取出主播房间模型
+        let anchor = baseVm.anchorGroups[indexPath.section].anchors[indexPath.item]
+        //2、判断主播信息确定要进入那种room
+        anchor.isVertical == 0 ? pushNormalViewController() : presentShowViewController()
+    }
+    // MARK: 普通直播房间
+    private func pushNormalViewController() {
+        let vc = RoomNormalViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    // MARK: - 秀场直播房间
+    private func presentShowViewController() {
+        let vc = RoomShowViewController()
+        present(vc, animated: true, completion: nil)
     }
 }

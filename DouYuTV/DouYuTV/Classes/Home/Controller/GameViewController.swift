@@ -51,6 +51,8 @@ extension GameViewController {
             }
             //2、刷新数据
             self?.collectionView.reloadData()
+            //3、结束动画
+            self?.loadDataCompletion()
         }
     }
 }

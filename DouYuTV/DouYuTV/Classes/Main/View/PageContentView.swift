@@ -25,10 +25,10 @@ class PageContentView: UIView {
     weak var delegate : PageContentViewDelegate?
     
     // MARK: - 懒加载
-    fileprivate lazy var collectionView : UICollectionView = {[weak self] in
+    fileprivate lazy var collectionView : UICollectionView = {[unowned self] in
         //创建流水布局
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = (self?.bounds.size)!
+        layout.itemSize = self.bounds.size
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal

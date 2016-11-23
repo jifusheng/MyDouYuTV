@@ -46,6 +46,8 @@ extension EntertainmentViewController {
             self?.collectionView.reloadData()
             //3、给cateView传递数据
             self?.cateView.games = self?.enterainmentVm.anchorGroups
+            //4、结束动画
+            self?.loadDataCompletion()
         }
     }
 }

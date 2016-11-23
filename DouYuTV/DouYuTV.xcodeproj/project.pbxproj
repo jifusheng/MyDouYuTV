@@ -32,6 +32,9 @@
 		7F3C9CFD1DE2EB5D00704C86 /* RecommendCateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F3C9CFC1DE2EB5D00704C86 /* RecommendCateView.xib */; };
 		7F73CADC1DE56B5D001C795C /* CateCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73CADA1DE56B5D001C795C /* CateCollectionCell.swift */; };
 		7F73CADD1DE56B5D001C795C /* CateCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F73CADB1DE56B5D001C795C /* CateCollectionCell.xib */; };
+		7F73CADF1DE58BBD001C795C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73CADE1DE58BBD001C795C /* BaseViewController.swift */; };
+		7F73CAE51DE598D4001C795C /* RoomShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73CAE41DE598D4001C795C /* RoomShowViewController.swift */; };
+		7F73CAE71DE598EF001C795C /* RoomNormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F73CAE61DE598EF001C795C /* RoomNormalViewController.swift */; };
 		7FB3A8371DDE95080020F75C /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A8361DDE95080020F75C /* RecommendViewController.swift */; };
 		7FB3A83D1DDEA3110020F75C /* RecommendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */; };
 		7FB3A83F1DDEA3AF0020F75C /* RecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */; };
@@ -91,6 +94,9 @@
 		7F3C9CFC1DE2EB5D00704C86 /* RecommendCateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCateView.xib; sourceTree = "<group>"; };
 		7F73CADA1DE56B5D001C795C /* CateCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CateCollectionCell.swift; sourceTree = "<group>"; };
 		7F73CADB1DE56B5D001C795C /* CateCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CateCollectionCell.xib; sourceTree = "<group>"; };
+		7F73CADE1DE58BBD001C795C /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7F73CAE41DE598D4001C795C /* RoomShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomShowViewController.swift; sourceTree = "<group>"; };
+		7F73CAE61DE598EF001C795C /* RoomNormalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomNormalViewController.swift; sourceTree = "<group>"; };
 		7FB3A8361DDE95080020F75C /* RecommendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		7FB3A83C1DDEA3110020F75C /* RecommendHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendHeaderView.swift; sourceTree = "<group>"; };
 		7FB3A83E1DDEA3AF0020F75C /* RecommendHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeaderView.xib; sourceTree = "<group>"; };
@@ -159,6 +165,39 @@
 				7F2919911DDF056000107BB8 /* AnchorModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7F73CAE01DE59890001C795C /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				7F73CAE21DE59890001C795C /* Model */,
+				7F73CAE31DE59890001C795C /* View */,
+				7F73CAE11DE59890001C795C /* Controller */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		7F73CAE11DE59890001C795C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F73CAE41DE598D4001C795C /* RoomShowViewController.swift */,
+				7F73CAE61DE598EF001C795C /* RoomNormalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7F73CAE21DE59890001C795C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7F73CAE31DE59890001C795C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7FB3A83A1DDEA3110020F75C /* Model */ = {
@@ -258,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				E17619E51DB8F01C003965E2 /* Main */,
+				7F73CAE01DE59890001C795C /* Room */,
 				E17619DD1DB8F01C003965E2 /* Home */,
 				E17619E11DB8F01C003965E2 /* Live */,
 				E17619D91DB8F01C003965E2 /* Follow */,
@@ -375,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				E17619FF1DB90028003965E2 /* MainViewController.swift */,
+				7F73CADE1DE58BBD001C795C /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -586,6 +627,7 @@
 				E1761A081DB900A5003965E2 /* ProfileViewController.swift in Sources */,
 				E17619C71DB8DCD9003965E2 /* AppDelegate.swift in Sources */,
 				7F3C9CFB1DE2EB3C00704C86 /* RecommendCateView.swift in Sources */,
+				7F73CADF1DE58BBD001C795C /* BaseViewController.swift in Sources */,
 				7FBB981E1DE41CBB00CE903D /* BaseViewModel.swift in Sources */,
 				7FEB21A41DDD5A8D00B898DF /* PageContentView.swift in Sources */,
 				7F2919861DDEF33B00107BB8 /* NetworkTool.swift in Sources */,
@@ -602,9 +644,11 @@
 				7F3C9CF41DE2D1E500704C86 /* GameModel.swift in Sources */,
 				7F3C9CF01DE2C5E700704C86 /* GameViewController.swift in Sources */,
 				7F29198D1DDEFD5900107BB8 /* NSDate-Extension.swift in Sources */,
+				7F73CAE51DE598D4001C795C /* RoomShowViewController.swift in Sources */,
 				7F73CADC1DE56B5D001C795C /* CateCollectionCell.swift in Sources */,
 				7FB3A8421DDEB2880020F75C /* NormalCollectionCell.swift in Sources */,
 				7F2919941DDFF16A00107BB8 /* BaseCollectionCell.swift in Sources */,
+				7F73CAE71DE598EF001C795C /* RoomNormalViewController.swift in Sources */,
 				7FB3A8461DDECB330020F75C /* PrettyCollectionCell.swift in Sources */,
 				E1761A041DB9008C003965E2 /* LiveViewController.swift in Sources */,
 				7FBB98201DE41ED600CE903D /* EntertainmentVM.swift in Sources */,

@@ -11,14 +11,14 @@ import UIKit
 class HomeViewController: UIViewController {
     fileprivate let titles = ["推荐","游戏","娱乐","趣玩"]
     // MARK: - 懒加载属性
-    fileprivate lazy var pageTitleView : PageTitleView = { [weak self] in
+    fileprivate lazy var pageTitleView : PageTitleView = { [unowned self] in
         let titleFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH, width: kScreenW, height: kPageTitleViewH)
-        let titleView = PageTitleView(frame: titleFrame, titles: (self?.titles)!)
+        let titleView = PageTitleView(frame: titleFrame, titles: self.titles)
         titleView.delegate = self
         return titleView
     }()
     
-    fileprivate lazy var pageContentView : PageContentView = { [weak self] in
+    fileprivate lazy var pageContentView : PageContentView = { [unowned self] in
         //1、设置frame
         let contentH = kScreenH - kTabBarH - kStatusBarH - kNavigationH - kPageTitleViewH
         let contentFrame = CGRect(x: 0, y: kStatusBarH + kNavigationH + kPageTitleViewH, width: kScreenW, height: contentH)
