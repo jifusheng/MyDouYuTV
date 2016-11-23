@@ -9,13 +9,14 @@
 import UIKit
 
 // MARK: - 定义常量
-private let kCellNormalIdentifier = "NormalCollectionCell"
+let kCellNormalIdentifier = "NormalCollectionCell"
+let kCellPrettyIdentifier = "PrettyCollectionCell"
 private let kSetionHeaderIdentifier = "kSetionHeaderIdentifier"
 
 class HomeBaseViewController: UIViewController {
     
     // MARK: - 定义属性需子类使用
-    var baseVm : BaseViewModel?
+    var baseVm : BaseViewModel!
     
     // MARK: - 懒加载属性
     lazy var collectionView : UICollectionView = {[unowned self] in
@@ -35,6 +36,7 @@ class HomeBaseViewController: UIViewController {
         collectionView.delegate = self
         //注册cell
         collectionView.register(UINib(nibName: "NormalCollectionCell", bundle: nil), forCellWithReuseIdentifier: kCellNormalIdentifier)
+        collectionView.register(UINib(nibName: "PrettyCollectionCell", bundle: nil), forCellWithReuseIdentifier: kCellPrettyIdentifier)
         //注册header
         collectionView.register(UINib(nibName: "RecommendHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kSetionHeaderIdentifier)
         return collectionView
@@ -42,16 +44,16 @@ class HomeBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //1、设置UI界面
-        setupUI()
-        //2、加载数据
+        //1、加载数据
         loadData()
+        //2、设置UI界面
+        setupUI()
     }
 }
 
 // MARK: - 设置UI界面
 extension HomeBaseViewController {
-    fileprivate func setupUI() {
+    func setupUI() {
         //把collectionView添加到view中
         view.addSubview(collectionView)
     }
@@ -67,14 +69,14 @@ extension HomeBaseViewController {
 // MARK: - 实现collectionView的数据源方法
 extension HomeBaseViewController : UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return baseVm?.anchorGroups.count ?? 0
+        return baseVm.anchorGroups.count
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return baseVm?.anchorGroups[section].anchors.count ?? 0
+        return baseVm.anchorGroups[section].anchors.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCellNormalIdentifier, for: indexPath) as! NormalCollectionCell
-        cell.anchor = baseVm!.anchorGroups[indexPath.section].anchors[indexPath.item]
+        cell.anchor = baseVm.anchorGroups[indexPath.section].anchors[indexPath.item]
         return cell
     }
 }
@@ -84,14 +86,11 @@ extension HomeBaseViewController : UICollectionViewDelegate {
     @objc(collectionView:viewForSupplementaryElementOfKind:atIndexPath:) func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kSetionHeaderIdentifier, for: indexPath) as! RecommendHeaderView
         //取出数据
-        let gameGroup = baseVm!.anchorGroups[indexPath.section]
+        let gameGroup = baseVm.anchorGroups[indexPath.section]
         if indexPath.section == 0 {
             gameGroup.icon_name = "home_header_hot"
         }
         header.baseGroup = gameGroup
         return header
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
 }

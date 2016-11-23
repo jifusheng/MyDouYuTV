@@ -19,9 +19,11 @@ class EntertainmentViewController: HomeBaseViewController {
         cateView.frame = CGRect(x: 0, y: -kCateViewH, width: kScreenW, height: kCateViewH)
         return cateView
     }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+}
+
+extension EntertainmentViewController {
+    override func setupUI() {
+        super.setupUI()
         //1、把cateView添加到collectionView中
         collectionView.addSubview(cateView)
         //2、设置collectionView的内边距

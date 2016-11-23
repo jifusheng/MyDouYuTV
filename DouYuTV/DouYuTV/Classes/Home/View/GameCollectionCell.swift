@@ -14,12 +14,12 @@ class GameCollectionCell: UICollectionViewCell {
         didSet {
             guard let baseModel = baseModel else { return }
             let url = URL(string: baseModel.icon_url)
-            iconView.kf.setImage(with: url, placeholder: UIImage(named: "home_more_btn"))
+            iconView.kf.setImage(with: url, placeholder: UIImage(named: placeholderImageName!))
             nameLbl.text = baseModel.tag_name
         }
     }
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
-
+    var placeholderImageName : String? = "home_more_btn"
 }

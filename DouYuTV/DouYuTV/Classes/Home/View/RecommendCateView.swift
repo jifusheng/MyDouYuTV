@@ -8,12 +8,13 @@
 
 import UIKit
 
-private let cateIdentifier = "GameCollectionCell"
+private let kOneItemCellCount = 8
+private let cateIdentifier = "CateCollectionCell"
 
 class RecommendCateView: UIView {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var pageControl: UIPageControl!
     
     fileprivate var cateArray : [BaseGroupModel] = [BaseGroupModel]()
     
@@ -36,7 +37,7 @@ class RecommendCateView: UIView {
             //刷新数据
             collectionView.reloadData()
             //设置pageControl
-            pageControl.numberOfPages = 2
+            pageControl.numberOfPages = (cateArray.count + kOneItemCellCount - 1) / kOneItemCellCount
             //显示pageControl
             pageControl.isHidden = false
         }
@@ -51,7 +52,13 @@ class RecommendCateView: UIView {
         collectionView.dataSource = self
         collectionView.delegate = self;
         //注册cell
-        collectionView.register(UINib(nibName: "GameCollectionCell", bundle: nil), forCellWithReuseIdentifier: cateIdentifier)
+        collectionView.register(UINib(nibName: "CateCollectionCell", bundle: nil), forCellWithReuseIdentifier: cateIdentifier)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: kScreenW, height: collectionView.bounds.height)
     }
 }
 
@@ -65,25 +72,28 @@ extension RecommendCateView {
 // MARK: - 实现collectionView的数据源方法
 extension RecommendCateView : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cateArray.count 
+        return (cateArray.count + kOneItemCellCount - 1) / kOneItemCellCount
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cateIdentifier, for: indexPath) as! GameCollectionCell
-        cell.baseModel = cateArray[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cateIdentifier, for: indexPath) as! CateCollectionCell
+        setupCellDateWith(cell: cell, indexPath: indexPath)
         return cell
+    }
+    private func setupCellDateWith(cell: CateCollectionCell, indexPath: IndexPath) {
+        //计算起始位置
+        let startIndex = indexPath.item * kOneItemCellCount
+        var endIndex = (indexPath.item + 1) * kOneItemCellCount - 1
+        //判断越界问题
+        if endIndex >= cateArray.count {
+            endIndex = cateArray.count - 1
+        }
+        //给cell赋值
+        cell.itemArray = Array(cateArray[startIndex ... endIndex])
     }
 }
 
 // MARK: - 实现collectionView的代理方法
-extension RecommendCateView : UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    // MARK: - 设置item的size
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: kScreenW / 4, height: 80)
-    }
-    // MARK: - 监听item的点击
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
+extension RecommendCateView : UICollectionViewDelegate {
     // MARK: - 监听collectiView的滚动
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
